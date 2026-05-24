@@ -363,12 +363,18 @@
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease;
             outline: none;
             border-radius: 50%;
+            -webkit-tap-highlight-color: transparent; /* Fixes flash on iOS touch */
         }
 
         .avatar-btn svg {
             display: block;
             width: 42px;
             height: 42px;
+        }
+
+        /* WebKit/iOS Safe Visor Class: Uses pure solid CSS fill fallback rules */
+        .avatar-btn .visor-path {
+            fill: #4e84e7; /* Reliable fallback color for picky mobile engines */
         }
 
         .avatar-btn:hover {
@@ -491,15 +497,10 @@
 
             <div class="avatar-btn-wrapper">
                 <button class="avatar-btn" id="avatar-trigger" aria-label="Avatar Interaction">
+                    <!-- Clean, multi-platform SVG setup avoiding nested <defs> bugs -->
                     <svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="visorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#4e84e7"/>
-                                <stop offset="100%" stop-color="#aaccff"/>
-                            </linearGradient>
-                        </defs>
                         <circle cx="50" cy="57.5" r="33.5" stroke="#000000" stroke-width="7" fill="#ffffff"/>
-                        <rect x="13.5" y="39.5" width="73" height="21" rx="10.5" fill="url(#visorGradient)" stroke="#000000" stroke-width="7"/>
+                        <rect class="visor-path" x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="#000000" stroke-width="7"/>
                         <path d="M37 69C40 74.5 45 76.5 50 76.5C55 76.5 60 74.5 63 69" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
                     </svg>
                 </button>
@@ -528,7 +529,9 @@
             
             let currentStyleIndex = -1; // -1 represents the slick default look
 
-            avatar.addEventListener('click', () => {
+            avatar.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevents double click-zoom behaviors on iOS systems
+
                 // Clear out the previous style
                 if (currentStyleIndex !== -1) {
                     title.classList.remove(styles[currentStyleIndex]);
