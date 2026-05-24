@@ -101,7 +101,7 @@ h1 {
   color: transparent;
   -webkit-text-fill-color: transparent;
   
-  /* Compounded multi-axis swirl animation active BY DEFAULT */
+  /* Compounded multi-axis swirl animation active by default */
   animation: siriMeshMorph 8s ease-in-out infinite alternate;
 }
 
@@ -381,20 +381,6 @@ footer {
   height: 42px;
 }
 
-/* Target the container element holding our CSS-rendered mesh visor */
-.avatar-visor-mesh {
-  /* Bridges the exact same high-fidelity mesh dynamic engine to the helmet visor */
-  background-image: 
-    radial-gradient(circle at var(--bubble-1-x) var(--bubble-1-y), var(--siri-magenta) 0%, transparent 50%),
-    radial-gradient(circle at var(--bubble-2-x) var(--bubble-2-y), var(--siri-purple) 0%, transparent 55%),
-    radial-gradient(circle at var(--bubble-3-x) var(--bubble-3-y), var(--siri-cyan) 0%, transparent 45%),
-    radial-gradient(circle at var(--bubble-4-x) var(--bubble-4-y), var(--siri-electric-blue) 0%, transparent 50%);
-  background-color: var(--siri-deep-blue);
-  
-  /* Running constantly by default, fully synchronized with the header */
-  animation: siriMeshMorph 8s ease-in-out infinite alternate;
-}
-
 .avatar-btn:hover {
   transform: scale(1.12) rotate(4deg);
   filter: drop-shadow(0 0 14px rgba(0, 210, 255, 0.55));
@@ -447,12 +433,9 @@ footer {
     opacity: 1;
     transform: none;
   }
-  h1, .avatar-visor-mesh {
+  h1 {
     animation: none;
     background: none;
-    background-color: var(--siri-deep-blue);
-  }
-  h1 {
     color: var(--text-main);
     -webkit-text-fill-color: var(--text-main);
   }
@@ -541,21 +524,10 @@ footer {
     <div class="avatar-btn-wrapper">
       <button class="avatar-btn" id="avatar-trigger" aria-label="Avatar Interaction">
         <svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <clipPath id="visor-clip">
-              <rect x="13.5" y="39.5" width="73" height="21" rx="10.5" />
-            </clipPath>
-          </defs>
-
           <circle cx="50" cy="57.5" r="33.5" stroke="#000000" stroke-width="7" fill="#ffffff"/>
           
-          <g clip-path="url(#visor-clip)">
-            <foreignObject x="10" y="35" width="80" height="30">
-              <div class="avatar-visor-mesh" style="width: 100%; height: 100%;"></div>
-            </foreignObject>
-          </g>
-
-          <rect x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="#000000" stroke-width="7"/>
+          <rect x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="#000000" stroke-width="7" fill="#000000"/>
+          
           <path d="M37 69C40 74.5 45 76.5 50 76.5C55 76.5 60 74.5 63 69" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
         </svg>
       </button>
