@@ -68,138 +68,37 @@ body {
   justify-content: center;
 }
 
-/* Base Title Config */
 h1 {
   font-size: clamp(3rem, 10vw, 5.5rem); 
   font-weight: 900;
-  letter-spacing: -0.02em; 
+  letter-spacing: -0.04em; 
   line-height: 0.9;
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: inline-flex; /* Ensures perfect inline tracking for split spans */
-  gap: 2px;
-}
+  display: inline-block;
 
-/* =========================================================
-   CORE DYNAMIC LETTER-GEOMETRY ENGINE
-   ========================================================= */
-
-/* Base config applied only when running native geometric layout mode */
-h1.geometric-mode span {
+  /* Premium Overlapping Google UI Gradient Blend */
+  background: linear-gradient(
+    135deg,
+    var(--google-blue) 0%,
+    var(--google-purple) 18%,
+    var(--google-red) 40%,
+    var(--google-orange) 65%,
+    var(--google-yellow) 80%,
+    var(--google-green) 100%
+  );
+  background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
-  background-size: 16px 16px;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: googleFluidWave 12s ease-in-out infinite;
 }
-
-/* Letter 1 (G): Tech Halftone Dots */
-h1.geometric-mode span:nth-child(1) {
-  background-image: radial-gradient(var(--google-blue) 25%, transparent 25%);
-  animation: patternScrollUp 4s linear infinite;
-}
-
-/* Letter 2 (O): 45-Degree Racing Stripes */
-h1.geometric-mode span:nth-child(2) {
-  background-image: repeating-linear-gradient(45deg, var(--google-purple), var(--google-purple) 4px, transparent 4px, transparent 8px);
-  animation: patternScrollDiagonal 6s linear infinite;
-}
-
-/* Letter 3 (B): Horizontal Blueprint Lines */
-h1.geometric-mode span:nth-child(3) {
-  background-image: linear-gradient(to bottom, var(--google-red) 2px, transparent 2px);
-  background-size: 100% 10px;
-  animation: patternScrollDown 3s linear infinite;
-}
-
-/* Letter 4 (I): Cross-Hatch Grid Matrix */
-h1.geometric-mode span:nth-child(4) {
-  background-image: 
-    linear-gradient(to right, var(--google-yellow) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--google-yellow) 1px, transparent 1px);
-  background-size: 8px 8px;
-  animation: patternRotateOffset 12s linear infinite;
-}
-
-/* Letter 5 (B): Concentric Target Ripples */
-h1.geometric-mode span:nth-child(5) {
-  background-image: repeating-radial-gradient(circle, var(--google-green), var(--google-green) 2px, transparent 2px, transparent 8px);
-  animation: patternPulse 5s ease-in-out infinite alternate;
-}
-
-/* Letter 6 (O): Sharp Vertical Bars */
-h1.geometric-mode span:nth-child(6) {
-  background-image: linear-gradient(to right, var(--google-blue) 3px, transparent 3px);
-  background-size: 12px 100%;
-  animation: patternScrollLeft 4s linear infinite;
-}
-
-/* Letter 7 (R): Inverse Neon Slanted Grid */
-h1.geometric-mode span:nth-child(7) {
-  background-image: repeating-linear-gradient(-45deg, var(--google-purple), var(--google-purple) 2px, transparent 2px, transparent 10px);
-  animation: patternScrollDiagonalInverse 5s linear infinite;
-}
-
-/* Letter 8 (G): Alternating Checkerboard Matrix */
-h1.geometric-mode span:nth-child(8) {
-  background-image: linear-gradient(45deg, var(--google-red) 25%, transparent 25%, transparent 75%, var(--google-red) 75%),
-                    linear-gradient(45deg, var(--google-red) 25%, #111111 25%, #111111 75%, var(--google-red) 75%);
-  background-position: 0 0, 8px 8px;
-  animation: patternScrollUp 7s linear infinite;
-}
-
-/* =========================================================
-   GEOMETRIC DIRECTIONAL VECTOR MOTIONS
-   ========================================================= */
-@keyframes patternScrollUp {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 -32px; }
-}
-@keyframes patternScrollDown {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 32px; }
-}
-@keyframes patternScrollLeft {
-  0% { background-position: 0 0; }
-  100% { background-position: -32px 0; }
-}
-@keyframes patternScrollDiagonal {
-  0% { background-position: 0 0; }
-  100% { background-position: 32px 32px; }
-}
-@keyframes patternScrollDiagonalInverse {
-  0% { background-position: 0 0; }
-  100% { background-position: -32px 32px; }
-}
-@keyframes patternRotateOffset {
-  0% { transform: scale(1); filter: hue-rotate(0deg); }
-  50% { transform: scale(1.03); }
-  100% { transform: scale(1); filter: hue-rotate(360deg); }
-}
-@keyframes patternPulse {
-  0% { background-size: 10px 10px; }
-  100% { background-size: 20px 20px; }
-}
-
 
 /* ==========================================
-   THE RETRO WORDART ENGINE OVERRIDES
+   THE ULTIMATE RETRO WORDART EXPANSION
    ========================================== */
-
-/* Structural reset block ensuring wordart overrides individual letter masks smoothly */
-h1:not(.geometric-mode) span {
-  background: inherit !important;
-  background-clip: inherit !important;
-  -webkit-background-clip: inherit !important;
-  color: inherit !important;
-  -webkit-text-fill-color: inherit !important;
-  text-shadow: inherit !important;
-  filter: inherit !important;
-  animation: inherit !important;
-}
 
 /* 1. The Rainbow Arch (The Absolute Classic) */
 h1.wa-rainbow {
@@ -482,7 +381,7 @@ footer {
   height: 42px;
 }
 
-/* Target visor path hooks into native UI theme rules */
+/* Visor Uses Pure Variable Map Fallback */
 .avatar-btn .visor-path {
   fill: var(--google-blue);
 }
@@ -504,6 +403,19 @@ footer {
   }
 }
 
+/* Google-Inspired Slow Multi-Axis Wave */
+@keyframes googleFluidWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Accessibility: Motion Reductions */
 @media (prefers-reduced-motion: reduce) {
   .container {
@@ -511,8 +423,11 @@ footer {
     opacity: 1;
     transform: none;
   }
-  h1.geometric-mode span {
-    animation: none !important;
+  h1 {
+    animation: none;
+    background: none;
+    color: var(--text-main);
+    -webkit-text-fill-color: var(--text-main);
   }
   .social-nav a:hover, .modern-btn:hover, .avatar-btn:hover {
     transform: none;
@@ -539,8 +454,7 @@ footer {
 
 <main class="container">
   <header class="header-block">
-    <!-- Server-Side/Base text left intact, JavaScript builds the individual letter map tokens dynamically on runtime -->
-    <h1 id="main-title" class="geometric-mode">GOBIBORG</h1>
+    <h1 id="main-title">GOBIBORG</h1>
     <h3 id="main-subtitle">Motion and interaction designer in tech</h3>
   </header>
 
@@ -615,17 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const title = document.getElementById('main-title');
   const subtitle = document.getElementById('main-subtitle');
 
-  // Step 1: Tokenize the text into individual span structures
-  const baseText = title.textContent;
-  title.innerHTML = '';
-  [...baseText].forEach((letter, idx) => {
-    const letterSpan = document.createElement('span');
-    letterSpan.textContent = letter;
-    letterSpan.style.setProperty('--i', idx);
-    title.appendChild(letterSpan);
-  });
-
-  // Retro WordArt classes list mapping
+  // List of premium retro WordArt classes mapping
   const styles = [
     'wa-rainbow',
     'wa-blue3d',
@@ -638,21 +542,21 @@ document.addEventListener('DOMContentLoaded', () => {
     'wa-vertical'
   ];
 
-  let currentStyleIndex = -1; // -1 defaults right back to premium geometric motion layers
+  let currentStyleIndex = -1; // -1 represents the slick default look
 
   avatar.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevents zoom/tap anomalies on specific mobile engines
+    e.preventDefault(); // Prevents double click-zoom behaviors on mobile systems
     
-    // Smooth haptic click on supported native devices
+    // Tactile haptic feedback loop for premium mobile engines
     if (navigator.vibrate) {
       navigator.vibrate(15);
     }
 
-    // Step 2: Strip old class modifications away
+    // Clear out the previous style
     if (currentStyleIndex !== -1) {
       title.classList.remove(styles[currentStyleIndex]);
 
-      // Reset block configurations if leaving the vertical alignment stack
+      // Reset layout attributes if leaving vertical layout
       if (styles[currentStyleIndex] === 'wa-vertical') {
         title.style.writingMode = '';
         subtitle.style.marginTop = '';
@@ -661,16 +565,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentStyleIndex++;
 
-    // Step 3: Shift architecture engine states
+    // If we've circled through all of them, head back to default base state
     if (currentStyleIndex >= styles.length) {
       currentStyleIndex = -1;
-      title.classList.add('geometric-mode'); // Reinstate moving geometry layout mode
     } else {
-      title.classList.remove('geometric-mode'); // Clear native geometry before writing wordart properties
       const nextStyle = styles[currentStyleIndex];
       title.classList.add(nextStyle);
 
-      // Handle custom alignment properties for vertical typography mode
+      // Handle specific structural attributes for the legendary vertical layout
       if (nextStyle === 'wa-vertical') {
         title.style.writingMode = 'vertical-rl';
         subtitle.style.marginTop = '1.5rem';
