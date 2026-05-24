@@ -24,75 +24,84 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             font-family: var(--font-stack);
-            min-height: 100vh;
+            height: 100dvh; /* Uses Dynamic Viewport Height to counter shifting mobile address bars */
+            overflow: hidden; /* Hard locks the screen from scrolling */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem 2rem;
         }
 
         /* Container & Entrance Animation */
         .container {
             max-width: 600px;
             width: 100%;
+            height: 100%;
+            padding: 3rem 2rem; /* Balanced defensive padding */
             text-align: left;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            
+            /* Structural layout engine for crisp single-page distribution */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Top Block to bundle Brand Elements */
+        .header-block {
+            margin-bottom: auto; /* Pushes content-block downward naturally if room exists */
         }
 
         /* Big, Bold, and Dynamic Gradient Typography */
         h1 {
-            font-size: clamp(3.5rem, 10vw, 6.5rem);
+            font-size: clamp(3.2rem, 11vw, 6.5rem); /* Scaled down slightly on minimum mobile layouts */
             font-weight: 900;
             letter-spacing: -0.03em;
-            line-height: 0.95; /* Safely prevents vector clipping */
-            margin-bottom: 1.75rem;
+            line-height: 0.95;
+            margin-bottom: 0.75rem;
             text-transform: uppercase;
 
             /* Multi-tone Dynamic Gradient Setup */
             background: linear-gradient(
                 45deg, 
-                #7c3aed, /* Deep Violet */
-                #2563eb, /* Neon Blue */
-                #db2777, /* Magenta */
-                #f97316, /* Warm Coral */
-                #7c3aed  /* Loop Back to Violet */
+                #7c3aed, 
+                #2563eb, 
+                #db2777, 
+                #f97316, 
+                #7c3aed
             );
             background-size: 400% 400%;
-            
-            /* Clips the animated background strictly to the text vector lines */
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             -webkit-text-fill-color: transparent;
-
-            /* Continuous Wave Animation */
             animation: gradientWave 8s ease infinite;
         }
 
         /* Subtitle H3 Styling */
         h3 {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-size: clamp(1.05rem, 4.5vw, 1.5rem);
             font-weight: 400;
             color: var(--text-muted);
             letter-spacing: -0.01em;
-            line-height: 1.4;
-            margin-bottom: 3rem;
+            line-height: 1.3;
         }
 
         /* Body Copy Styling */
         .content-block {
-            margin-bottom: 3.5rem;
+            margin-top: auto;
+            margin-bottom: auto; /* Centers content block within vertical layout space */
+            padding: 1.5rem 0;
         }
 
         p {
-            font-size: 1.05rem;
+            font-size: clamp(0.95rem, 3.8vw, 1.05rem); /* Dynamic fluid sizing prevents word-wrapping bloat */
             font-weight: 400;
             color: var(--text-body);
             letter-spacing: -0.01em;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
         }
 
         p:last-of-type {
@@ -115,10 +124,11 @@
         /* Links Section */
         .links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem 1.5rem; /* Tightened gap footprint for fluid wrapping profiles */
             flex-wrap: wrap;
             border-top: 1px solid #222;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
+            margin-top: auto;
         }
 
         .links a {
@@ -129,6 +139,7 @@
             letter-spacing: -0.01em;
             transition: color 0.2s ease, transform 0.2s ease;
             display: inline-block;
+            padding: 0.25rem 0; /* Clear, high-accuracy tap targets */
         }
 
         .links a:hover {
@@ -160,7 +171,7 @@
             }
             h1 {
                 animation: none;
-                background: none; /* Removes raw gradient tracking behind solid color fill */
+                background: none;
                 color: var(--text-main);
                 -webkit-text-fill-color: var(--text-main);
             }
@@ -168,13 +179,24 @@
                 transform: none;
             }
         }
+
+        /* Extra small height defensive architecture */
+        @media (max-height: 660px) {
+            .container { padding: 1.5rem 1.5rem; }
+            h1 { margin-bottom: 0.25rem; }
+            .content-block { padding: 0.75rem 0; }
+            p { margin-bottom: 0.5rem; }
+            .links { padding-top: 1rem; }
+        }
     </style>
 </head>
 <body>
 
     <main class="container">
-        <h1>GOBIBORG</h1>
-        <h3>Motion and interaction designer in tech</h3>
+        <div class="header-block">
+            <h1>GOBIBORG</h1>
+            <h3>Motion and interaction designer in tech</h3>
+        </div>
         
         <section class="content-block">
             <p>Tech brands and products need distribution to stand out and stay ahead. Better content provides distribution with communication, audience attraction and retention.</p>
