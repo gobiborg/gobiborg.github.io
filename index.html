@@ -7,7 +7,7 @@
     <style>
         /* Modern CSS Reset & Variable Setup */
         :root {
-            --bg-color: #0a0a0a;
+            --bg-color: #070708;
             --text-main: #ffffff;
             --text-muted: #888888;
             --text-body: #b3b3b3;
@@ -53,38 +53,96 @@
         .header-block {
             text-align: center;
             width: 100%;
-            perspective: 600px; /* Enables clean 3D transforms for WordArt */
+            perspective: 1000px; /* Enhanced perspective for 3D glass rendering */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
 
+        /* ==========================================
+           LIQUID GLASS OVAL BUTTON CONTAINER
+           ========================================== */
+        .glass-capsule {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 3.5rem;
+            border-radius: 100px; /* Perfect oval shape */
+            margin-bottom: 1.5rem;
+            
+            /* Glass physical structure layers */
+            background: linear-gradient(
+                to bottom, 
+                rgba(255, 255, 255, 0.12) 0%, 
+                rgba(255, 255, 255, 0.03) 40%, 
+                rgba(0, 0, 0, 0.3) 50%, 
+                rgba(255, 255, 255, 0.01) 100%
+            );
+            
+            /* Sharp specular edge highlight & bottom shadow casting */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom-color: rgba(255, 255, 255, 0.08);
+            
+            /* iOS WebKit optimization for frosted light lensing */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            
+            box-shadow: 
+                inset 0 2px 4px rgba(255, 255, 255, 0.15),
+                inset 0 -4px 10px rgba(0, 0, 0, 0.4),
+                0 4px 20px rgba(0, 0, 0, 0.4),
+                0 20px 40px rgba(0, 0, 0, 0.6);
+                
+            transform: rotateX(10deg);
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Ambient internal gloss flare reflection across the lens */
+        .glass-capsule::after {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 10%;
+            right: 10%;
+            height: 40%;
+            border-radius: 100px / 40px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+        }
+
+        /* 3D Liquid Glass Core Typeface */
         h1 {
-            font-size: clamp(3rem, 10vw, 5.5rem); 
+            font-size: clamp(2.5rem, 8vw, 4.8rem); 
             font-weight: 900;
-            letter-spacing: -0.04em; 
-            line-height: 0.9;
-            margin-bottom: 0.75rem;
+            letter-spacing: -0.03em; 
+            line-height: 1;
             text-transform: uppercase;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-block;
+            transform: translateZ(15px); /* Forces typography to hover over background shadow plane */
 
-            /* Optimized Dynamic Gradient Setup */
+            /* High-contrast vertical metallic reflection profile */
             background: linear-gradient(
-                45deg, 
-                #7c3aed, 
-                #2563eb, 
-                #db2777, 
-                #f97316, 
-                #7c3aed
+                to bottom, 
+                #ffffff 0%, 
+                #f2f2f2 44%, 
+                #3a3a3c 48%, 
+                #111112 52%, 
+                #8e8e93 85%,
+                #ffffff 100%
             );
-            background-size: 200% 200%;
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             -webkit-text-fill-color: transparent;
-            animation: gradientWave 8s ease infinite;
+            
+            /* Razor sharp outline edge highlight */
+            -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.55);
+            
+            filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.75));
         }
 
         /* ==========================================
@@ -99,8 +157,8 @@
             color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1.5px #000000;
             filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.8));
-            transform: scaleY(1.2) skewX(-10deg) rotate(-3deg);
-            animation: none; letter-spacing: 0.05em;
+            transform: scaleY(1.2) skewX(-10deg) rotate(-3deg) translateZ(15px);
+            letter-spacing: 0.05em;
         }
 
         /* 2. The Blue 3D Extrusion */
@@ -110,8 +168,7 @@
             background-clip: text; -webkit-background-clip: text;
             color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px #000033;
-            transform: rotateX(25deg) rotateY(-20deg) rotateZ(-5deg);
-            animation: none;
+            transform: rotateX(25deg) rotateY(-20deg) rotateZ(-5deg) translateZ(15px);
             text-shadow: 
                 1px 1px 0px #001f80, 2px 2px 0px #001f80, 3px 3px 0px #001f80,
                 4px 4px 0px #001f80, 5px 5px 0px #001f80, 6px 6px 6px rgba(0,0,0,0.9);
@@ -125,7 +182,7 @@
             background-clip: text; -webkit-background-clip: text;
             color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1.5px #444444;
-            transform: skewX(-15deg); animation: none;
+            transform: skewX(-15deg) translateZ(15px);
             filter: drop-shadow(-6px 6px 1px rgba(0,0,0,0.7));
         }
 
@@ -136,7 +193,7 @@
             background-clip: text; -webkit-background-clip: text;
             color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px #330000;
-            transform: scale(1.1) translateY(-5px); animation: none;
+            transform: scale(1.1) translateY(-5px) translateZ(15px);
             filter: drop-shadow(0px 7px 0px #4a0000);
         }
 
@@ -149,7 +206,7 @@
             background-clip: text; -webkit-background-clip: text;
             color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px #ffccff;
-            transform: skewY(-6deg) rotate(-2deg) scaleX(0.9); animation: none;
+            transform: skewY(-6deg) rotate(-2deg) scaleX(0.9) translateZ(15px);
             filter: drop-shadow(4px 4px 0px #220033);
             letter-spacing: 0.08em;
         }
@@ -161,7 +218,7 @@
             background-clip: text; -webkit-background-clip: text;
             color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1.2px #111;
-            transform: perspective(400px) rotateX(-15deg) scaleY(1.1); animation: none;
+            transform: perspective(400px) rotateX(-15deg) scaleY(1.1) translateZ(15px);
             filter: drop-shadow(3px 4px 2px rgba(0,0,0,0.8));
         }
 
@@ -172,7 +229,7 @@
             color: #000000;
             -webkit-text-fill-color: #000000;
             -webkit-text-stroke: 2px #00ff00;
-            transform: rotate(4deg) scale(0.95); animation: none;
+            transform: rotate(4deg) scale(0.95) translateZ(15px);
             filter: drop-shadow(4px 4px 0px #003300);
         }
 
@@ -183,7 +240,7 @@
             background-clip: text; -webkit-background-clip: text;
             color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px #888888;
-            transform: rotateX(15deg) skewX(12deg); animation: none;
+            transform: rotateX(15deg) skewX(12deg) translateZ(15px);
             text-shadow: 
                 -1px 1px 0px #444, -2px 2px 0px #444, -3px 3px 0px #333,
                 -4px 4px 4px rgba(0,0,0,0.6);
@@ -196,13 +253,11 @@
             background-clip: text; -webkit-background-clip: text;
             color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px #000033;
-            animation: none;
             letter-spacing: -0.05em;
             line-height: 0.85;
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            transform: rotateY(15deg);
+            font-size: clamp(2.2rem, 7vw, 3.8rem);
+            transform: rotateY(15deg) translateZ(15px);
             filter: drop-shadow(5px 2px 0px rgba(0,0,0,0.7));
-            margin-bottom: 1.5rem;
         }
 
         h3 {
@@ -363,7 +418,7 @@
             transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease;
             outline: none;
             border-radius: 50%;
-            -webkit-tap-highlight-color: transparent; /* Fixes flash on iOS touch */
+            -webkit-tap-highlight-color: transparent; 
         }
 
         .avatar-btn svg {
@@ -372,9 +427,8 @@
             height: 42px;
         }
 
-        /* WebKit/iOS Safe Visor Class: Uses pure solid CSS fill fallback rules */
         .avatar-btn .visor-path {
-            fill: #4e84e7; /* Reliable fallback color for picky mobile engines */
+            fill: #4e84e7; 
         }
 
         .avatar-btn:hover {
@@ -394,13 +448,6 @@
             }
         }
 
-        /* Smoothed Fluid Wave Keyframe */
-        @keyframes gradientWave {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         /* Accessibility: Motion Reductions */
         @media (prefers-reduced-motion: reduce) {
             .container {
@@ -408,11 +455,14 @@
                 opacity: 1;
                 transform: none;
             }
+            .glass-capsule {
+                transform: none;
+            }
             h1 {
-                animation: none;
                 background: none;
                 color: var(--text-main);
                 -webkit-text-fill-color: var(--text-main);
+                transform: none;
             }
             .social-nav a:hover, .modern-btn:hover, .avatar-btn:hover {
                 transform: none;
@@ -425,7 +475,7 @@
         @media (max-height: 680px) {
             body { padding: 1.5rem 1.5rem; }
             .container { gap: 1.5rem; }
-            h1 { margin-bottom: 0.25rem; }
+            .glass-capsule { padding: 0.9rem 2.5rem; margin-bottom: 1rem; }
             .content-block { gap: 0.75rem; }
             .modern-btn { padding: 0.65rem 2rem; font-size: 0.9rem; }
             footer { padding-top: 1rem; gap: 1rem; }
@@ -439,12 +489,15 @@
 
     <main class="container">
         <header class="header-block">
-            <h1 id="main-title">GOBIBORG</h1>
+            <!-- Encasing Liquid Glass Button Structure -->
+            <div class="glass-capsule" id="glass-lens">
+                <h1 id="main-title">GOBIBORG</h1>
+            </div>
             <h3 id="main-subtitle">Motion and interaction designer in tech</h3>
         </header>
         
         <section class="content-block">
-            <p>Tech brands and products need distribution to stand out and stay ahead in the market. Better content and interaction design provide an edge in distribution.</p>
+            <p>Tech brands and products need distribution to stand out and stay ahead. Better content and interaction design provide an edge in distribution.</p>
             
             <p>I make:</p>
             <ul class="feature-list">
@@ -452,7 +505,7 @@
                 <li>Dynamic and playful interaction design using Rive.</li>
             </ul>
 
-            <p>If you like my content/design, let's explore how we can work together. Just send me a message on socials or mail at <a href="mailto:hi@gobiborg.com">work@gobiborg.com</a></p>
+            <p>If you like my style of content/design, let's explore how can we work together. Please send me a message on socials or mail at <a href="mailto:hi@gobiborg.com">hi@gobiborg.com</a></p>
             
             <div class="btn-wrapper">
                 <a href="https://blip.video" class="modern-btn" target="_blank" rel="noopener noreferrer">
@@ -497,7 +550,6 @@
 
             <div class="avatar-btn-wrapper">
                 <button class="avatar-btn" id="avatar-trigger" aria-label="Avatar Interaction">
-                    <!-- Clean, multi-platform SVG setup avoiding nested <defs> bugs -->
                     <svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="50" cy="57.5" r="33.5" stroke="#000000" stroke-width="7" fill="#ffffff"/>
                         <rect class="visor-path" x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="#000000" stroke-width="7"/>
@@ -511,6 +563,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const avatar = document.getElementById('avatar-trigger');
+            const glassLens = document.getElementById('glass-lens');
             const title = document.getElementById('main-title');
             const subtitle = document.getElementById('main-subtitle');
             
@@ -527,7 +580,7 @@
                 'wa-vertical'
             ];
             
-            let currentStyleIndex = -1; // -1 represents the slick default look
+            let currentStyleIndex = -1; // -1 represents the slick liquid glass default look
 
             avatar.addEventListener('click', (e) => {
                 e.preventDefault(); // Prevents double click-zoom behaviors on iOS systems
@@ -538,6 +591,8 @@
                     
                     // Reset layout attributes if leaving vertical layout
                     if (styles[currentStyleIndex] === 'wa-vertical') {
+                        glassLens.style.padding = '';
+                        glassLens.style.borderRadius = '';
                         title.style.writingMode = '';
                         subtitle.style.marginTop = '';
                     }
@@ -552,8 +607,10 @@
                     const nextStyle = styles[currentStyleIndex];
                     title.classList.add(nextStyle);
                     
-                    // Handle specific structural properties for the legendary vertical layout
+                    // Handle specific structural properties for the vertical layout
                     if (nextStyle === 'wa-vertical') {
+                        glassLens.style.padding = '3rem 1.2rem';
+                        glassLens.style.borderRadius = '40px'; /* Adjusted container shape for vertical scale */
                         title.style.writingMode = 'vertical-rl';
                         subtitle.style.marginTop = '1.5rem';
                     }
