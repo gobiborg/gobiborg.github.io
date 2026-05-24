@@ -53,7 +53,11 @@
         .header-block {
             text-align: center;
             width: 100%;
-            perspective: 500px; /* Enables clean 3D transforms for WordArt */
+            perspective: 600px; /* Enables clean 3D transforms for WordArt */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         h1 {
@@ -84,67 +88,121 @@
         }
 
         /* ==========================================
-           RETRO WORDART STYLES
+           THE ULTIMATE RETRO WORDART EXPANSION
            ========================================== */
         
-        /* Style 1: The Rainbow Arch (The Absolute Classic) */
-        h1.wordart-rainbow {
+        /* 1. The Rainbow Arch (The Absolute Classic) */
+        h1.wa-rainbow {
             font-family: "Impact", "Arial Black", sans-serif;
             background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1.5px #000000;
             filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.8));
             transform: scaleY(1.2) skewX(-10deg) rotate(-3deg);
-            animation: none;
-            letter-spacing: 0.05em;
+            animation: none; letter-spacing: 0.05em;
         }
 
-        /* Style 2: The Blue 3D Extrusion */
-        h1.wordart-blue3d {
+        /* 2. The Blue 3D Extrusion */
+        h1.wa-blue3d {
             font-family: "Impact", "Arial Black", sans-serif;
             background: linear-gradient(to bottom, #66ccff, #0033cc);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px #000033;
-            transform: rotateX(20deg) rotateY(-20deg) rotateZ(-5deg);
+            transform: rotateX(25deg) rotateY(-20deg) rotateZ(-5deg);
             animation: none;
             text-shadow: 
                 1px 1px 0px #001f80, 2px 2px 0px #001f80, 3px 3px 0px #001f80,
                 4px 4px 0px #001f80, 5px 5px 0px #001f80, 6px 6px 6px rgba(0,0,0,0.9);
         }
 
-        /* Style 3: Silver Horizontal Outline & Cast Shadow */
-        h1.wordart-silver {
+        /* 3. Silver Horizontal Outline & Cast Shadow */
+        h1.wa-silver {
             font-family: "Arial Black", sans-serif;
             font-style: italic;
             background: linear-gradient(to bottom, #ffffff 0%, #a6a6a6 50%, #ffffff 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1.5px #444444;
-            transform: skewX(-15deg);
-            animation: none;
-            filter: drop-shadow(-5px 5px 1px rgba(0,0,0,0.7));
+            transform: skewX(-15deg); animation: none;
+            filter: drop-shadow(-6px 6px 1px rgba(0,0,0,0.7));
         }
 
-        /* Style 4: Flame Gradient with Radical Bottom Shadow */
-        h1.wordart-flame {
+        /* 4. Flame Gradient with Bottom Block Shadow */
+        h1.wa-flame {
             font-family: "Impact", sans-serif;
             background: linear-gradient(to bottom, #ffff00, #ff3300);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
             -webkit-text-stroke: 1px #330000;
-            transform: scale(1.1) translateY(-5px);
-            animation: none;
+            transform: scale(1.1) translateY(-5px); animation: none;
             filter: drop-shadow(0px 7px 0px #4a0000);
+        }
+
+        /* 5. Pink/Purple Neon Slant */
+        h1.wa-neon {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            font-style: italic;
+            background: linear-gradient(135deg, #ff00ff, #6600cc);
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #ffccff;
+            transform: skewY(-6deg) rotate(-2deg) scaleX(0.9); animation: none;
+            filter: drop-shadow(4px 4px 0px #220033);
+            letter-spacing: 0.08em;
+        }
+
+        /* 6. Desert Gold Invert Arch */
+        h1.wa-gold {
+            font-family: "Copperplate", "Arial Black", sans-serif;
+            background: linear-gradient(to bottom, #2b1d0c 0%, #d4af37 40%, #ffffff 50%, #aa7c11 60%, #4a3206 100%);
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1.2px #111;
+            transform: perspective(400px) rotateX(-15deg) scaleY(1.1); animation: none;
+            filter: drop-shadow(3px 4px 2px rgba(0,0,0,0.8));
+        }
+
+        /* 7. Bright Lime Green Outline Wireframe */
+        h1.wa-lime {
+            font-family: "Comic Sans MS", "Arial Black", sans-serif;
+            background: none;
+            color: #000000;
+            -webkit-text-fill-color: #000000;
+            -webkit-text-stroke: 2px #00ff00;
+            transform: rotate(4deg) scale(0.95); animation: none;
+            filter: drop-shadow(4px 4px 0px #003300);
+        }
+
+        /* 8. Retro Corporate Shadow (Tilted Semi-Transparent) */
+        h1.wa-corporate {
+            font-family: "Arial Black", sans-serif;
+            background: #ffffff;
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #888888;
+            transform: rotateX(15deg) skewX(12deg); animation: none;
+            text-shadow: 
+                -1px 1px 0px #444, -2px 2px 0px #444, -3px 3px 0px #333,
+                -4px 4px 4px rgba(0,0,0,0.6);
+        }
+
+        /* 9. The Mythic Vertical WordArt */
+        h1.wa-vertical {
+            font-family: "Impact", "Arial Black", sans-serif;
+            background: linear-gradient(to bottom, #00ffff, #00008b);
+            background-clip: text; -webkit-background-clip: text;
+            color: transparent; -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #000033;
+            animation: none;
+            letter-spacing: -0.05em;
+            line-height: 0.85;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            transform: rotateY(15deg);
+            filter: drop-shadow(5px 2px 0px rgba(0,0,0,0.7));
+            margin-bottom: 1.5rem;
         }
 
         h3 {
@@ -154,6 +212,7 @@
             letter-spacing: 0.02em; 
             line-height: 1.4;
             text-transform: lowercase;
+            transition: margin-top 0.3s ease;
         }
 
         /* Body Copy Styling */
@@ -375,7 +434,7 @@
     <main class="container">
         <header class="header-block">
             <h1 id="main-title">GOBIBORG</h1>
-            <h3>Motion and interaction designer in tech</h3>
+            <h3 id="main-subtitle">Motion and interaction designer in tech</h3>
         </header>
         
         <section class="content-block">
@@ -452,32 +511,49 @@
         document.addEventListener('DOMContentLoaded', () => {
             const avatar = document.getElementById('avatar-trigger');
             const title = document.getElementById('main-title');
+            const subtitle = document.getElementById('main-subtitle');
             
-            // List of our retro WordArt style classes
+            // Expanded list of premium retro WordArt classes
             const styles = [
-                'wordart-rainbow',
-                'wordart-blue3d',
-                'wordart-silver',
-                'wordart-flame'
+                'wa-rainbow',
+                'wa-blue3d',
+                'wa-silver',
+                'wa-flame',
+                'wa-neon',
+                'wa-gold',
+                'wa-lime',
+                'wa-corporate',
+                'wa-vertical'
             ];
             
-            let currentStyleIndex = -1; // -1 represents the default modern gradient
+            let currentStyleIndex = -1; // -1 represents the slick default look
 
             avatar.addEventListener('click', () => {
-                // Remove whatever WordArt style is currently active
+                // Clear out the previous style
                 if (currentStyleIndex !== -1) {
                     title.classList.remove(styles[currentStyleIndex]);
+                    
+                    // Reset layout attributes if leaving vertical layout
+                    if (styles[currentStyleIndex] === 'wa-vertical') {
+                        title.style.writingMode = '';
+                        subtitle.style.marginTop = '';
+                    }
                 }
 
-                // Increment index to move to the next style
                 currentStyleIndex++;
 
-                // If we've gone past the last style, reset back to modern default (-1)
+                // If we've circled through all of them, head back to default base state
                 if (currentStyleIndex >= styles.length) {
                     currentStyleIndex = -1;
                 } else {
-                    // Apply the new style class
-                    title.classList.add(styles[currentStyleIndex]);
+                    const nextStyle = styles[currentStyleIndex];
+                    title.classList.add(nextStyle);
+                    
+                    // Handle specific structural properties for the legendary vertical layout
+                    if (nextStyle === 'wa-vertical') {
+                        title.style.writingMode = 'vertical-rl';
+                        subtitle.style.marginTop = '1.5rem';
+                    }
                 }
             });
         });
