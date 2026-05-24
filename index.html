@@ -147,39 +147,42 @@
             text-decoration-color: var(--text-main);
         }
 
-        /* Centered 90's Retro Button Container Layout */
+        /* Centered Modern Button Container Layout */
         .btn-wrapper {
             display: flex;
             justify-content: center;
             width: 100%;
-            margin: 1.25rem 0;
+            margin: 1.5rem 0;
         }
 
-        /* 90s Vintage UI Beveled Component Definition */
-        .retro-btn {
-            background-color: #ced4da; /* Classic structural hardware gray */
-            color: #000000 !important;
-            font-family: "MS Sans Serif", Geneva, "Courier New", monospace;
-            font-size: 0.9rem;
-            font-weight: bold;
-            text-decoration: none !important;
-            padding: 0.65rem 1.5rem;
-            border: 2px solid;
-            /* Light source simulated from top-left (White) to bottom-right (Dark Gray) */
-            border-color: #ffffff #868e96 #868e96 #ffffff;
-            box-shadow: 1px 1px 0px 1px #000000;
+        /* Modern Tech/Minimalist Interactive Component Definition */
+        .modern-btn {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
             text-align: center;
             white-space: nowrap;
             cursor: pointer;
             user-select: none;
-            transition: none; /* Vintage UI switches states instantly without modern transition lag */
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
         }
 
-        /* Inverted Light Matrix on Active Interaction Press */
-        .retro-btn:active {
-            border-color: #868e96 #ffffff #ffffff #868e96;
-            box-shadow: none;
-            transform: translate(1px, 1px);
+        /* Interactive States */
+        .modern-btn:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .modern-btn:active {
+            transform: translateY(0);
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
         /* Links Section */
@@ -236,7 +239,7 @@
                 color: var(--text-main);
                 -webkit-text-fill-color: var(--text-main);
             }
-            .links a:hover {
+            .links a:hover, .modern-btn:hover {
                 transform: none;
             }
         }
@@ -247,8 +250,8 @@
             h1 { margin-bottom: 0.25rem; }
             .content-block { padding: 0.5rem 0; }
             p { margin-bottom: 0.5rem; }
-            .btn-wrapper { margin: 0.5rem 0; }
-            .retro-btn { padding: 0.5rem 1.25rem; }
+            .btn-wrapper { margin: 0.75rem 0; }
+            .modern-btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
             .links { padding-top: 1rem; }
             .feature-list { margin: 0.25rem 0 0.5rem 0; }
         }
@@ -273,9 +276,9 @@
 
             <p>If you are a studio, brand or founder <b>in tech</b>, send me a message on socials or a mail at <a href="mailto:hi@gobiborg.com">hi@gobiborg.com</a></p>
             
-            <!-- Centered 90's Windows Style Button Block -->
+            <!-- Centered Modern Tech Button Block -->
             <div class="btn-wrapper">
-                <a href="https://blip.video" class="retro-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://blip.video" class="modern-btn" target="_blank" rel="noopener noreferrer">
                     Checkout my work | BLIP
                 </a>
             </div>
