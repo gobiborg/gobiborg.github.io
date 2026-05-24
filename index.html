@@ -10,6 +10,7 @@
             --bg-color: #0a0a0a;
             --text-main: #ffffff;
             --text-muted: #888888;
+            --text-body: #b3b3b3;
             --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
@@ -27,8 +28,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            overflow: hidden;
+            padding: 4rem 2rem;
         }
 
         /* Container & Subtle Animation */
@@ -43,22 +43,53 @@
 
         /* Big, Bold, and Capitalized Typography */
         h1 {
-            font-size: clamp(3.5rem, 10vw, 6.5rem); /* Scales based on screen size */
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
             font-weight: 900;
-            letter-spacing: -0.03em; /* Tight tracking for impact */
+            letter-spacing: -0.03em;
             line-height: 0.85;
             margin-bottom: 1.75rem;
-            text-transform: uppercase; /* Enforces all caps via CSS */
+            text-transform: uppercase;
         }
 
         /* Subtitle H3 Styling */
         h3 {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
-            font-weight: 400; /* Clean weight to contrast with the heavy h1 */
+            font-weight: 400;
             color: var(--text-muted);
             letter-spacing: -0.01em;
             line-height: 1.4;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Body Copy Styling */
+        .content-block {
+            margin-bottom: 3.5rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--text-body);
+            letter-spacing: -0.01em;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* Email Link within paragraph styling */
+        p a {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: var(--text-muted);
+            transition: text-decoration-color 0.2s ease;
+        }
+
+        p a:hover {
+            text-decoration-color: var(--text-main);
         }
 
         /* Links Section */
@@ -66,6 +97,8 @@
             display: flex;
             gap: 1.5rem;
             flex-wrap: wrap;
+            border-top: 1px solid #222;
+            padding-top: 2rem;
         }
 
         .links a {
@@ -110,6 +143,12 @@
         <h1>GOBIBORG</h1>
         <h3>Freelance motion graphics designer.</h3>
         
+        <section class="content-block">
+            <p>The tech ecosystem is noisy and moves fast. Products and brands in tech need better distribution to stay ahead. Better content provides distribution with communication, audience attraction and retention.</p>
+            <p>I make content with motion graphics for brand visuals, product launches, updates and showcases in tech.</p>
+            <p>If you are a studio, brand or founder in tech, send me a message on socials or drop me a mail at <a href="mailto:hi@gobiborg.com">hi@gobiborg.com</a></p>
+        </section>
+
         <nav class="links">
             <a href="https://x.com/gobiborg" target="_blank" rel="noopener noreferrer">Twitter</a>
             <a href="https://www.youtube.com/@GOBIBORG" target="_blank" rel="noopener noreferrer">YouTube</a>
