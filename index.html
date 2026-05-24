@@ -7,19 +7,19 @@
 <style>
 /* Modern CSS Reset & Variable Setup */
 :root {
-  --bg-color: #0a0a0a;
+  --bg-color: #08080a;
   --text-main: #ffffff;
-  --text-muted: #888888;
-  --text-body: #b3b3b3;
+  --text-muted: #8e8e93;
+  --text-body: #d1d1d6;
   --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   
-  /* Google Modern UI Fluid Palette */
-  --google-blue: #4285f4;
-  --google-purple: #9b51e0;
-  --google-red: #ea4335;
-  --google-orange: #f97316;
-  --google-yellow: #fbbc05;
-  --google-green: #34a853;
+  /* High-Saturate Vibrant UI Palette */
+  --google-blue: #2f7fff;
+  --google-purple: #a13eff;
+  --google-red: #ff3b30;
+  --google-orange: #ff9500;
+  --google-yellow: #ffcc00;
+  --google-green: #34c759;
 }
 
 * {
@@ -50,8 +50,8 @@ body {
   max-width: 600px;
   width: 100%;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(24px);
+  animation: playfulEntrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
@@ -61,7 +61,7 @@ body {
 .header-block {
   text-align: center;
   width: 100%;
-  perspective: 600px; /* Enables clean 3D transforms for WordArt */
+  perspective: 600px; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,31 +69,33 @@ body {
 }
 
 h1 {
-  font-size: clamp(3rem, 10vw, 5.5rem); 
+  font-size: clamp(3.2rem, 11vw, 6rem); 
   font-weight: 900;
-  letter-spacing: -0.04em; 
-  line-height: 0.9;
-  margin-bottom: 0.75rem;
+  letter-spacing: -0.05em; 
+  line-height: 0.85;
+  margin-bottom: 0.85rem;
   text-transform: uppercase;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   display: inline-block;
 
-  /* Premium Overlapping Google UI Gradient Blend */
-  background: linear-gradient(
-    135deg,
+  /* Ultra-Vibrant Concentric Liquid Blend */
+  background: radial-gradient(
+    circle at 20% 30%,
     var(--google-blue) 0%,
-    var(--google-purple) 18%,
+    var(--google-purple) 20%,
     var(--google-red) 40%,
-    var(--google-orange) 65%,
+    var(--google-orange) 60%,
     var(--google-yellow) 80%,
-    var(--google-green) 100%
+    var(--google-green) 100
   );
-  background-size: 300% 300%;
+  background-size: 260% 260%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: googleFluidWave 12s ease-in-out infinite;
+  
+  /* Playful, rapid kinetic swirl animation */
+  animation: vibrantSwirl 6s ease infinite alternative;
 }
 
 /* ==========================================
@@ -215,12 +217,11 @@ h1.wa-vertical {
 }
 
 h3 {
-  font-size: clamp(0.95rem, 3.8vw, 1.25rem);
-  font-weight: 400;
+  font-size: clamp(1rem, 4vw, 1.3rem);
+  font-weight: 500;
   color: var(--text-muted);
-  letter-spacing: 0.02em; 
+  letter-spacing: 0.01em; 
   line-height: 1.4;
-  text-transform: lowercase;
   transition: margin-top 0.3s ease;
 }
 
@@ -233,100 +234,102 @@ h3 {
 }
 
 p {
-  font-size: clamp(0.9rem, 3.5vw, 1.05rem); 
+  font-size: clamp(0.95rem, 3.6vw, 1.1rem); 
   font-weight: 400;
   color: var(--text-body);
   letter-spacing: -0.01em;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .feature-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   padding-left: 0;
 }
 
 .feature-list li {
-  font-size: clamp(0.9rem, 3.5vw, 1.05rem);
+  font-size: clamp(0.95rem, 3.6vw, 1.1rem);
   color: var(--text-body);
   line-height: 1.5;
   position: relative;
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
 }
 
 .feature-list li::before {
-  content: "—";
+  content: "✦";
   position: absolute;
   left: 0;
-  color: var(--text-muted);
+  color: var(--google-purple);
+  animation: subtlePulse 2s ease-in-out infinite alternate;
 }
 
 p a {
   color: var(--text-main);
   text-decoration: underline;
   text-underline-offset: 4px;
-  text-decoration-color: var(--text-muted);
-  transition: text-decoration-color 0.2s ease;
+  text-decoration-color: var(--google-blue);
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
 }
 
 p a:hover {
-  text-decoration-color: var(--text-main);
+  color: var(--google-yellow);
+  text-decoration-color: var(--google-yellow);
 }
 
 .btn-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .modern-btn {
-  background-color: rgba(255, 255, 255, 0.07);
+  background-color: rgba(255, 255, 255, 0.05);
   color: var(--text-main);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   letter-spacing: -0.01em;
   text-decoration: none;
-  padding: 0.85rem 2.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 8px;
+  padding: 0.95rem 2.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
 }
 
 .modern-btn:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(255, 255, 255, 0.1);
   border-color: var(--google-blue); 
-  box-shadow: 0 0 20px rgba(66, 133, 244, 0.3);
-  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(47, 127, 255, 0.35);
+  transform: translateY(-4px) scale(1.02);
 }
 
 .modern-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
   border-color: var(--google-purple);
 }
 
 /* Footer Layout Structure */
 footer {
-  border-top: 1px solid #222;
-  padding-top: 1.5rem;
+  border-top: 1px solid #1c1c1e;
+  padding-top: 1.75rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 .social-nav ul {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   align-items: center;
   justify-content: center;
   list-style: none;
@@ -339,20 +342,25 @@ footer {
   align-items: center;
   justify-content: center;
   padding: 0.75rem; 
-  transition: color 0.25s ease, transform 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .social-nav svg {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
 }
 
 .social-nav a:hover {
   color: var(--text-main);
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.15);
 }
+
+.social-nav li:nth-child(1) a:hover { color: #fff; }
+.social-nav li:nth-child(2) a:hover { color: var(--google-red); }
+.social-nav li:nth-child(3) a:hover { color: var(--google-blue); }
+.social-nav li:nth-child(4) a:hover { color: #e1306c; }
 
 /* Bottom avatar button styling */
 .avatar-btn-wrapper {
@@ -369,7 +377,7 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
   outline: none;
   border-radius: 50%;
   -webkit-tap-highlight-color: transparent; 
@@ -377,43 +385,60 @@ footer {
 
 .avatar-btn svg {
   display: block;
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
 }
 
-/* Visor Uses Pure Variable Map Fallback */
 .avatar-btn .visor-path {
   fill: var(--google-blue);
+  transition: fill 0.2s ease;
 }
 
 .avatar-btn:hover {
-  transform: scale(1.12) rotate(4deg);
-  filter: drop-shadow(0 0 12px rgba(66, 133, 244, 0.4));
+  transform: scale(1.18) rotate(8deg);
+  filter: drop-shadow(0 0 16px rgba(161, 62, 255, 0.5));
+}
+
+.avatar-btn:hover .visor-path {
+  fill: var(--google-purple);
 }
 
 .avatar-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
 }
 
-/* Entrance Keyframe */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* ==========================================
+   DYNAMIC KINETIC ANIMATION ENGINE
+   ========================================== */
 
-/* Google-Inspired Slow Multi-Axis Wave */
-@keyframes googleFluidWave {
+/* Playful elastic page pop */
+@keyframes playfulEntrance {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
   }
   100% {
-    background-position: 0% 50%;
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
+}
+
+/* Liquid morphing spotlight movement */
+@keyframes vibrantSwirl {
+  0% {
+    background-position: 0% 20%;
+  }
+  50% {
+    background-position: 70% 80%;
+  }
+  100% {
+    background-position: 100% 40%;
+  }
+}
+
+@keyframes subtlePulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1; }
 }
 
 /* Accessibility: Motion Reductions */
@@ -442,11 +467,11 @@ footer {
   .container { gap: 1.5rem; }
   h1 { margin-bottom: 0.25rem; }
   .content-block { gap: 0.75rem; }
-  .modern-btn { padding: 0.65rem 2rem; font-size: 0.9rem; }
+  .modern-btn { padding: 0.75rem 2.25rem; font-size: 0.95rem; }
   footer { padding-top: 1rem; gap: 1rem; }
   .social-nav a { padding: 0.6rem; }
-  .social-nav svg { width: 18px; height: 18px; }
-  .avatar-btn svg { width: 36px; height: 36px; }
+  .social-nav svg { width: 20px; height: 20px; }
+  .avatar-btn svg { width: 40px; height: 40px; }
 }
 </style>
 </head>
@@ -545,7 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentStyleIndex = -1; // -1 represents the slick default look
 
   avatar.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevents double click-zoom behaviors on mobile systems
+    e.preventDefault(); 
     
     // Tactile haptic feedback loop for premium mobile engines
     if (navigator.vibrate) {
