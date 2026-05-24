@@ -41,7 +41,7 @@
             animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Big, Bold, and Capitalized Typography */
+        /* Big, Bold, and Dynamic Gradient Typography */
         h1 {
             font-size: clamp(3.5rem, 10vw, 6.5rem);
             font-weight: 900;
@@ -49,7 +49,26 @@
             line-height: 0.85;
             margin-bottom: 1.75rem;
             text-transform: uppercase;
-            color: var(--text-main);
+
+            /* Multi-tone Dynamic Gradient Setup */
+            background: linear-gradient(
+                45deg, 
+                #7c3aed, /* Deep Violet */
+                #2563eb, /* Neon Blue */
+                #db2777, /* Magenta */
+                #f97316, /* Warm Coral */
+                #7c3aed  /* Loop Back to Violet */
+            );
+            background-size: 400% 400%; /* Makes the gradient massive so it can shift cleanly */
+            
+            /* Clips the animated background strictly to the text vector lines */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+
+            /* Continuous Wave Animation */
+            animation: gradientWave 8s ease infinite;
         }
 
         /* Subtitle H3 Styling */
@@ -117,7 +136,7 @@
             transform: translateY(-1px);
         }
 
-        /* Entrance Keyframes */
+        /* Entrance Keyframe */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -125,11 +144,31 @@
             }
         }
 
+        /* Dynamic Gradient Shift Keyframe mimicking a fluid wave */
+        @keyframes gradientWave {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Media query for users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
             .container {
                 animation: none;
                 opacity: 1;
                 transform: none;
+            }
+            h1 {
+                animation: none;
+                background-size: 100% 100%;
+                color: var(--text-main);
+                -webkit-text-fill-color: var(--text-main);
             }
             .links a:hover {
                 transform: none;
