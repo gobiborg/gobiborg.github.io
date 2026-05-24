@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gobiborg | Motion Graphics Designer</title>
+    <style>
+        /* Modern CSS Reset & Variable Setup */
+        :root {
+            --bg-color: #0a0a0a;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --accent: #3b82f6; /* Subtle blue for interactive elements if you add them later */
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        /* Container & Subtle Animation */
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Big and Bold Typography */
+        h1 {
+            font-size: clamp(3.5rem, 10vw, 6rem); /* Scales beautifully based on screen size */
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            margin-bottom: 1.5rem;
+            text-transform: lowercase; /* Optional: adds a modern, brutalist aesthetic */
+        }
+
+        p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: -0.01em;
+            line-height: 1.4;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media query for users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .container {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <h1>gobiborg</h1>
+        <p>Freelance motion graphics designer.</p>
+    </main>
+
+</body>
+</html>
