@@ -46,7 +46,7 @@
             font-size: clamp(3.5rem, 10vw, 6.5rem);
             font-weight: 900;
             letter-spacing: -0.03em;
-            line-height: 0.85;
+            line-height: 0.95; /* Safely prevents vector clipping */
             margin-bottom: 1.75rem;
             text-transform: uppercase;
 
@@ -59,7 +59,7 @@
                 #f97316, /* Warm Coral */
                 #7c3aed  /* Loop Back to Violet */
             );
-            background-size: 400% 400%; /* Makes the gradient massive so it can shift cleanly */
+            background-size: 400% 400%;
             
             /* Clips the animated background strictly to the text vector lines */
             background-clip: text;
@@ -146,15 +146,9 @@
 
         /* Dynamic Gradient Shift Keyframe mimicking a fluid wave */
         @keyframes gradientWave {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Media query for users who prefer reduced motion */
@@ -166,7 +160,7 @@
             }
             h1 {
                 animation: none;
-                background-size: 100% 100%;
+                background: none; /* Removes raw gradient tracking behind solid color fill */
                 color: var(--text-main);
                 -webkit-text-fill-color: var(--text-main);
             }
@@ -180,7 +174,7 @@
 
     <main class="container">
         <h1>GOBIBORG</h1>
-        <h3>Motion and interaction designer in tech</h3>h3>
+        <h3>Motion and interaction designer in tech</h3>
         
         <section class="content-block">
             <p>Tech brands and products need distribution to stand out and stay ahead. Better content provides distribution with communication, audience attraction and retention.</p>
