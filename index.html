@@ -42,7 +42,6 @@
             width: 100%;
             height: 100%;
             padding: 2.5rem 2rem; /* Optimized defensive padding for strict boundaries */
-            text-align: left;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -53,9 +52,11 @@
             justify-content: space-between;
         }
 
-        /* Top Block to bundle Brand Elements */
+        /* Centered Header Block */
         .header-block {
+            text-align: center;
             margin-bottom: 1.5rem;
+            width: 100%;
         }
 
         /* Big, Bold, and Dynamic Gradient Typography */
@@ -95,6 +96,7 @@
 
         /* Body Copy Styling */
         .content-block {
+            text-align: left;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -196,6 +198,7 @@
             display: flex;
             gap: 1.75rem;
             align-items: center;
+            justify-content: center; /* Centers the icon row to complement the layout */
             border-top: 1px solid #222;
             padding-top: 1.25rem;
             margin-top: auto;
@@ -270,13 +273,14 @@
 <body>
 
     <main class="container">
+        <!-- Strictly Centered Header Block -->
         <div class="header-block">
             <h1>GOBIBORG</h1>
-            <h3><b>Motion and interaction designer in tech</b></h3>
+            <h3>Motion and interaction designer in tech</h3>
         </div>
         
         <section class="content-block">
-            <p>Tech brands and products need distribution to stand out and stay ahead. Better content and interaction design provide an edge in distribution.</p>
+            <p>Tech brands and products need distribution to stand out and stay ahead. Better content provides distribution with communication, audience attraction and retention.</p>
             
             <p>I make:</p>
             <ul class="feature-list">
