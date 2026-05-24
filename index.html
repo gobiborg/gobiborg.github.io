@@ -380,7 +380,7 @@ footer {
   width: 42px;
   height: 42px;
   
-  /* Reduced down to 1px multi-directional offsets for an ultra-sleek, clean hairline outline */
+  /* Retains the tight hair-line profile frame */
   filter: 
     drop-shadow(1px 0 0 #ffffff) 
     drop-shadow(-1px 0 0 #ffffff) 
@@ -393,13 +393,13 @@ footer {
 }
 
 .avatar-btn:hover svg {
-  /* Retains the crisp 1px clean profile frame while expanding standard interaction bloom mechanics */
+  /* Updated shadow highlight to clean neon blue rather than green tint */
   filter: 
     drop-shadow(1px 0 0 #ffffff) 
     drop-shadow(-1px 0 0 #ffffff) 
     drop-shadow(0 1px 0 #ffffff) 
     drop-shadow(0 -1px 0 #ffffff)
-    drop-shadow(0 0 12px rgba(0, 210, 255, 0.7));
+    drop-shadow(0 0 12px var(--siri-electric-blue));
 }
 
 .avatar-btn:active {
