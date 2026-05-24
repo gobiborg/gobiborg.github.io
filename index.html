@@ -13,15 +13,23 @@
   --text-body: #b3b3b3;
   --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   
-  /* High-Saturate Vibrant UI Palette from Image */
-  --siri-blue: #0076ff;
-  --siri-purple: #b57eff;
-  --siri-red: #ff3333;
-  --siri-magenta: #e0007b;
-  --siri-orange: #ff6b35;
-  --siri-yellow: #ffdd00;
-  --siri-green: #00e640;
+  /* Ultra-Vibrant Neon Siri Palette */
+  --siri-electric-blue: #00d2ff;
+  --siri-deep-blue: #0040ff;
+  --siri-purple: #8000ff;
+  --siri-magenta: #ff007f;
+  --siri-cyan: #00ffff;
 }
+
+/* Register Custom Properties to allow smooth, independent coordinate animation */
+@property --bubble-1-x { syntax: '<percentage>'; inherits: false; initial-value: 10%; }
+@property --bubble-1-y { syntax: '<percentage>'; inherits: false; initial-value: 30%; }
+@property --bubble-2-x { syntax: '<percentage>'; inherits: false; initial-value: 50%; }
+@property --bubble-2-y { syntax: '<percentage>'; inherits: false; initial-value: 10%; }
+@property --bubble-3-x { syntax: '<percentage>'; inherits: false; initial-value: 90%; }
+@property --bubble-3-y { syntax: '<percentage>'; inherits: false; initial-value: 40%; }
+@property --bubble-4-x { syntax: '<percentage>'; inherits: false; initial-value: 30%; }
+@property --bubble-4-y { syntax: '<percentage>'; inherits: false; initial-value: 80%; }
 
 * {
   box-sizing: border-box;
@@ -62,7 +70,7 @@ body {
 .header-block {
   text-align: center;
   width: 100%;
-  perspective: 600px; /* Enables clean 3D transforms for WordArt */
+  perspective: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,27 +87,28 @@ h1 {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-block;
 
-  /* Re-create Siri-Style wavy gradient effect mapping from the image */
-  background: radial-gradient(circle at 10% 20%, var(--siri-magenta) 0%, transparent 40%),
-              radial-gradient(circle at 50% 10%, var(--siri-purple) 0%, transparent 45%),
-              radial-gradient(circle at 90% 20%, var(--siri-magenta) 0%, transparent 40%),
-              radial-gradient(circle at 20% 70%, var(--siri-magenta) 0%, var(--siri-orange) 25%, transparent 55%),
-              radial-gradient(circle at 60% 80%, var(--siri-blue) 0%, transparent 50%);
-  background-color: var(--google-red); /* base bleed */
+  /* Dynamic Mesh Engine utilizing custom properties for multi-axis fluid blending */
+  background-image: 
+    radial-gradient(circle at var(--bubble-1-x) var(--bubble-1-y), var(--siri-magenta) 0%, transparent 50%),
+    radial-gradient(circle at var(--bubble-2-x) var(--bubble-2-y), var(--siri-purple) 0%, transparent 55%),
+    radial-gradient(circle at var(--bubble-3-x) var(--bubble-3-y), var(--siri-cyan) 0%, transparent 45%),
+    radial-gradient(circle at var(--bubble-4-x) var(--bubble-4-y), var(--siri-electric-blue) 0%, transparent 50%);
+  background-color: var(--siri-deep-blue); /* Deep vibrant base */
   
-  background-size: 200% 200%;
+  background-size: 100% 100%; /* Keeps the resolution sharp across coordinates */
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: googleFluidWave 12s ease-in-out infinite;
+  
+  /* Compounded multi-axis swirl animation */
+  animation: siriMeshMorph 8s ease-in-out infinite alternate;
 }
 
 /* ==========================================
-   THE ULTIMATE RETRO WORDART EXPANSION
+   THE RETRO WORDART EXPANSION (PRESERVED)
    ========================================== */
 
-/* 1. The Rainbow Arch (The Absolute Classic) */
 h1.wa-rainbow {
   font-family: "Impact", "Arial Black", sans-serif;
   background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
@@ -111,7 +120,6 @@ h1.wa-rainbow {
   animation: none; letter-spacing: 0.05em;
 }
 
-/* 2. The Blue 3D Extrusion */
 h1.wa-blue3d {
   font-family: "Impact", "Arial Black", sans-serif;
   background: linear-gradient(to bottom, #66ccff, #0033cc);
@@ -125,7 +133,6 @@ h1.wa-blue3d {
     4px 4px 0px #001f80, 5px 5px 0px #001f80, 6px 6px 6px rgba(0,0,0,0.9);
 }
 
-/* 3. Silver Horizontal Outline & Cast Shadow */
 h1.wa-silver {
   font-family: "Arial Black", sans-serif;
   font-style: italic;
@@ -137,7 +144,6 @@ h1.wa-silver {
   filter: drop-shadow(-6px 6px 1px rgba(0,0,0,0.7));
 }
 
-/* 4. Flame Gradient with Bottom Block Shadow */
 h1.wa-flame {
   font-family: "Impact", sans-serif;
   background: linear-gradient(to bottom, #ffff00, #ff3300);
@@ -148,7 +154,6 @@ h1.wa-flame {
   filter: drop-shadow(0px 7px 0px #4a0000);
 }
 
-/* 5. Pink/Purple Neon Slant */
 h1.wa-neon {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
@@ -162,7 +167,6 @@ h1.wa-neon {
   letter-spacing: 0.08em;
 }
 
-/* 6. Desert Gold Invert Arch */
 h1.wa-gold {
   font-family: "Copperplate", "Arial Black", sans-serif;
   background: linear-gradient(to bottom, #2b1d0c 0%, #d4af37 40%, #ffffff 50%, #aa7c11 60%, #4a3206 100%);
@@ -173,7 +177,6 @@ h1.wa-gold {
   filter: drop-shadow(3px 4px 2px rgba(0,0,0,0.8));
 }
 
-/* 7. Bright Lime Green Outline Wireframe */
 h1.wa-lime {
   font-family: "Comic Sans MS", "Arial Black", sans-serif;
   background: none;
@@ -184,7 +187,6 @@ h1.wa-lime {
   filter: drop-shadow(4px 4px 0px #003300);
 }
 
-/* 8. Retro Corporate Shadow (Tilted Semi-Transparent) */
 h1.wa-corporate {
   font-family: "Arial Black", sans-serif;
   background: #ffffff;
@@ -197,7 +199,6 @@ h1.wa-corporate {
     -4px 4px 4px rgba(0,0,0,0.6);
 }
 
-/* 9. The Mythic Vertical WordArt */
 h1.wa-vertical {
   font-family: "Impact", "Arial Black", sans-serif;
   background: linear-gradient(to bottom, #00ffff, #00008b);
@@ -301,15 +302,15 @@ p a:hover {
 
 .modern-btn:hover {
   background-color: rgba(255, 255, 255, 0.12);
-  border-color: var(--google-blue); 
-  box-shadow: 0 0 20px rgba(47, 127, 255, 0.3);
+  border-color: var(--siri-electric-blue); 
+  box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
   transform: translateY(-2px);
 }
 
 .modern-btn:active {
   transform: translateY(0);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  border-color: var(--google-purple);
+  border-color: var(--siri-purple);
 }
 
 /* Footer Layout Structure */
@@ -380,14 +381,13 @@ footer {
   height: 42px;
 }
 
-/* Visor Uses Pure Variable Map Fallback */
 .avatar-btn .visor-path {
-  fill: var(--google-blue);
+  fill: var(--siri-electric-blue);
 }
 
 .avatar-btn:hover {
   transform: scale(1.12) rotate(4deg);
-  filter: drop-shadow(0 0 12px rgba(66, 133, 244, 0.4));
+  filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.4));
 }
 
 .avatar-btn:active {
@@ -402,16 +402,31 @@ footer {
   }
 }
 
-/* Multi-Axis Swirling Wave Keyframe Engine */
-@keyframes googleFluidWave {
+/* Liquid Coordinate Morph Engine: Simulates true organic mesh movement */
+@keyframes siriMeshMorph {
   0% {
-    background-position: 0% 50%;
+    --bubble-1-x: 8%;   --bubble-1-y: 25%;
+    --bubble-2-x: 45%;  --bubble-2-y: 15%;
+    --bubble-3-x: 92%;  --bubble-3-y: 35%;
+    --bubble-4-x: 25%;  --bubble-4-y: 75%;
   }
-  50% {
-    background-position: 100% 50%;
+  33% {
+    --bubble-1-x: 35%;  --bubble-1-y: 65%;
+    --bubble-2-x: 15%;  --bubble-2-y: 35%;
+    --bubble-3-x: 75%;  --bubble-3-y: 15%;
+    --bubble-4-x: 60%;  --bubble-4-y: 85%;
+  }
+  66% {
+    --bubble-1-x: 70%;  --bubble-1-y: 20%;
+    --bubble-2-x: 85%;  --bubble-2-y: 70%;
+    --bubble-3-x: 20%;  --bubble-3-y: 80%;
+    --bubble-4-x: 10%;  --bubble-4-y: 15%;
   }
   100% {
-    background-position: 0% 50%;
+    --bubble-1-x: 15%;  --bubble-1-y: 80%;
+    --bubble-2-x: 55%;  --bubble-2-y: 85%;
+    --bubble-3-x: 85%;  --bubble-3-y: 25%;
+    --bubble-4-x: 80%;  --bubble-4-y: 10%;
   }
 }
 
@@ -528,7 +543,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const title = document.getElementById('main-title');
   const subtitle = document.getElementById('main-subtitle');
 
-  // List of premium retro WordArt classes mapping
   const styles = [
     'wa-rainbow',
     'wa-blue3d',
@@ -541,21 +555,18 @@ document.addEventListener('DOMContentLoaded', () => {
     'wa-vertical'
   ];
 
-  let currentStyleIndex = -1; // -1 represents the slick default look
+  let currentStyleIndex = -1;
 
   avatar.addEventListener('click', (e) => {
     e.preventDefault(); 
     
-    // Tactile haptic feedback loop for premium mobile engines
     if (navigator.vibrate) {
       navigator.vibrate(15);
     }
 
-    // Clear out the previous style
     if (currentStyleIndex !== -1) {
       title.classList.remove(styles[currentStyleIndex]);
 
-      // Reset layout attributes if leaving vertical layout
       if (styles[currentStyleIndex] === 'wa-vertical') {
         title.style.writingMode = '';
         subtitle.style.marginTop = '';
@@ -564,14 +575,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     currentStyleIndex++;
 
-    // If we've circled through all of them, head back to default base state
     if (currentStyleIndex >= styles.length) {
       currentStyleIndex = -1;
     } else {
       const nextStyle = styles[currentStyleIndex];
       title.classList.add(nextStyle);
 
-      // Handle specific structural attributes for the legendary vertical layout
       if (nextStyle === 'wa-vertical') {
         title.style.writingMode = 'vertical-rl';
         subtitle.style.marginTop = '1.5rem';
