@@ -53,6 +53,7 @@
         .header-block {
             text-align: center;
             width: 100%;
+            perspective: 500px; /* Enables clean 3D transforms for WordArt */
         }
 
         h1 {
@@ -62,6 +63,8 @@
             line-height: 0.9;
             margin-bottom: 0.75rem;
             text-transform: uppercase;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
 
             /* Optimized Dynamic Gradient Setup */
             background: linear-gradient(
@@ -78,6 +81,70 @@
             color: transparent;
             -webkit-text-fill-color: transparent;
             animation: gradientWave 8s ease infinite;
+        }
+
+        /* ==========================================
+           RETRO WORDART STYLES
+           ========================================== */
+        
+        /* Style 1: The Rainbow Arch (The Absolute Classic) */
+        h1.wordart-rainbow {
+            font-family: "Impact", "Arial Black", sans-serif;
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1.5px #000000;
+            filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.8));
+            transform: scaleY(1.2) skewX(-10deg) rotate(-3deg);
+            animation: none;
+            letter-spacing: 0.05em;
+        }
+
+        /* Style 2: The Blue 3D Extrusion */
+        h1.wordart-blue3d {
+            font-family: "Impact", "Arial Black", sans-serif;
+            background: linear-gradient(to bottom, #66ccff, #0033cc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #000033;
+            transform: rotateX(20deg) rotateY(-20deg) rotateZ(-5deg);
+            animation: none;
+            text-shadow: 
+                1px 1px 0px #001f80, 2px 2px 0px #001f80, 3px 3px 0px #001f80,
+                4px 4px 0px #001f80, 5px 5px 0px #001f80, 6px 6px 6px rgba(0,0,0,0.9);
+        }
+
+        /* Style 3: Silver Horizontal Outline & Cast Shadow */
+        h1.wordart-silver {
+            font-family: "Arial Black", sans-serif;
+            font-style: italic;
+            background: linear-gradient(to bottom, #ffffff 0%, #a6a6a6 50%, #ffffff 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1.5px #444444;
+            transform: skewX(-15deg);
+            animation: none;
+            filter: drop-shadow(-5px 5px 1px rgba(0,0,0,0.7));
+        }
+
+        /* Style 4: Flame Gradient with Radical Bottom Shadow */
+        h1.wordart-flame {
+            font-family: "Impact", sans-serif;
+            background: linear-gradient(to bottom, #ffff00, #ff3300);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #330000;
+            transform: scale(1.1) translateY(-5px);
+            animation: none;
+            filter: drop-shadow(0px 7px 0px #4a0000);
         }
 
         h3 {
@@ -307,7 +374,7 @@
 
     <main class="container">
         <header class="header-block">
-            <h1>GOBIBORG</h1>
+            <h1 id="main-title">GOBIBORG</h1>
             <h3>Motion and interaction designer in tech</h3>
         </header>
         
@@ -364,7 +431,7 @@
             </nav>
 
             <div class="avatar-btn-wrapper">
-                <button class="avatar-btn" aria-label="Avatar Interaction">
+                <button class="avatar-btn" id="avatar-trigger" aria-label="Avatar Interaction">
                     <svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="visorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -381,5 +448,39 @@
         </footer>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const avatar = document.getElementById('avatar-trigger');
+            const title = document.getElementById('main-title');
+            
+            // List of our retro WordArt style classes
+            const styles = [
+                'wordart-rainbow',
+                'wordart-blue3d',
+                'wordart-silver',
+                'wordart-flame'
+            ];
+            
+            let currentStyleIndex = -1; // -1 represents the default modern gradient
+
+            avatar.addEventListener('click', () => {
+                // Remove whatever WordArt style is currently active
+                if (currentStyleIndex !== -1) {
+                    title.classList.remove(styles[currentStyleIndex]);
+                }
+
+                // Increment index to move to the next style
+                currentStyleIndex++;
+
+                // If we've gone past the last style, reset back to modern default (-1)
+                if (currentStyleIndex >= styles.length) {
+                    currentStyleIndex = -1;
+                } else {
+                    // Apply the new style class
+                    title.classList.add(styles[currentStyleIndex]);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
