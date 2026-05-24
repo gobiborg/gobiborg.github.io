@@ -41,42 +41,15 @@
             animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Title Masking Wrapper */
-        .shader-title-container {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 1.75rem;
-        }
-
-        /* WebGL Canvas sits perfectly behind the text */
-        #shader-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Big, Bold Typography acting as a literal window to the canvas */
+        /* Big, Bold, and Capitalized Typography */
         h1 {
             font-size: clamp(3.5rem, 10vw, 6.5rem);
             font-weight: 900;
             letter-spacing: -0.03em;
             line-height: 0.85;
+            margin-bottom: 1.75rem;
             text-transform: uppercase;
-            
-            /* The Magic: This cuts out the background and shows the canvas only inside the text vectors */
-            background: transparent;
-            color: transparent;
-            background-clip: text;
-            -webkit-background-clip: text;
-            
-            position: relative;
-            z-index: 2;
-            mix-blend-mode: screen; /* Integrates cleanly with the black canvas background */
+            color: var(--text-main);
         }
 
         /* Subtitle H3 Styling */
@@ -167,12 +140,7 @@
 <body>
 
     <main class="container">
-        <!-- Text & Shader Layout Wrapper -->
-        <div class="shader-title-container">
-            <canvas id="shader-canvas"></canvas>
-            <h1>GOBIBORG</h1>
-        </div>
-
+        <h1>GOBIBORG</h1>
         <h3>Freelance motion graphics designer.</h3>
         
         <section class="content-block">
@@ -189,130 +157,5 @@
         </nav>
     </main>
 
-    <!-- WebGL Engine Script -->
-    <script>
-        const canvas = document.getElementById('shader-canvas');
-        const gl = canvas.getContext('webgl');
-
-        if (!gl) {
-            console.error('WebGL not supported');
-        }
-
-        // Vertex Shader Source
-        const vsSource = `
-            attribute vec2 position;
-            void main() {
-                gl_Position = vec4(position, 0.0, 1.0);
-            }
-        `;
-
-        // Fragment Shader Source (Custom Iridescent Fluid Math Engine)
-        const fsSource = `
-            precision highp float;
-            uniform vec2 u_resolution;
-            uniform float u_time;
-
-            vec2 rnoise(vec2 p) {
-                p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
-                return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
-            }
-
-            float gradientNoise(vec2 p) {
-                vec2 i = floor(p);
-                vec2 f = fract(p);
-                vec2 u = f * f * (3.0 - 2.0 * f);
-                return mix(mix(dot(rnoise(i + vec2(0.0, 0.0)), f - vec2(0.0, 0.0)),
-                               dot(rnoise(i + vec2(1.0, 0.0)), f - vec2(1.0, 0.0)), u.x),
-                           mix(dot(rnoise(i + vec2(0.0, 1.0)), f - vec2(0.0, 1.0)),
-                               dot(rnoise(i + vec2(1.0, 1.0)), f - vec2(1.0, 1.0)), u.x), u.y);
-            }
-
-            void main() {
-                vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-                uv.x *= u_resolution.x / u_resolution.y;
-                
-                // Slow drifting controls
-                vec2 uv2 = uv * 3.0 + vec2(u_time * 0.04, u_time * 0.02);
-                
-                float n1 = gradientNoise(uv2);
-                float n2 = gradientNoise(uv2 + vec2(n1 * 0.5, n1 * 0.3) + vec2(u_time * 0.01));
-                
-                // Sleek, high-contrast dark iridescent colors
-                vec3 baseColor = vec3(0.02, 0.03, 0.15); // Deep base dark tone
-                vec3 accentColor1 = vec3(0.75, 0.15, 0.55); // Rich magenta
-                vec3 accentColor2 = vec3(0.15, 0.68, 0.88); // Cyan highlight
-                
-                vec3 finalColor = mix(baseColor, accentColor1, n1 * 0.5 + 0.5);
-                finalColor = mix(finalColor, accentColor2, n2 * 0.6 + 0.4);
-                
-                finalColor += vec3(pow(max(0.0, n2), 4.0) * 0.3); // High sheen edge highlights
-
-                gl_FragColor = vec4(finalColor, 1.0);
-            }
-        `;
-
-        function createShader(gl, type, source) {
-            const shader = gl.createShader(type);
-            gl.shaderSource(shader, source);
-            gl.compileShader(shader);
-            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-                console.error(gl.getShaderInfoLog(shader));
-                gl.deleteShader(shader);
-                return null;
-            }
-            return shader;
-        }
-
-        const vs = createShader(gl, gl.VERTEX_SHADER, vsSource);
-        const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource);
-
-        const program = gl.createProgram();
-        gl.attachShader(program, vs);
-        gl.attachShader(program, fs);
-        gl.linkProgram(program);
-
-        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-            console.error('Could not link program');
-        }
-
-        const positionBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-            -1, -1,   1, -1,  -1,  1,
-            -1,  1,   1, -1,   1,  1,
-        ]), gl.STATIC_DRAW);
-
-        const positionLocation = gl.getAttribLocation(program, 'position');
-        const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
-        const timeLocation = gl.getUniformLocation(program, 'u_time');
-
-        function resize() {
-            const displayWidth = canvas.clientWidth;
-            const displayHeight = canvas.clientHeight;
-            if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-                canvas.width = displayWidth;
-                canvas.height = displayHeight;
-                gl.viewport(0, 0, canvas.width, canvas.height);
-            }
-        }
-
-        function render(time) {
-            resize();
-            time *= 0.001;
-
-            gl.useProgram(program);
-            gl.enableVertexAttribArray(positionLocation);
-            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-            gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
-
-            gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
-            gl.uniform1f(timeLocation, time);
-
-            gl.drawArrays(gl.TRIANGLES, 0, 6);
-            requestAnimationFrame(render);
-        }
-
-        requestAnimationFrame(render);
-    </script>
 </body>
 </html>
