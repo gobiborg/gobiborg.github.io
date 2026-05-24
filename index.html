@@ -377,13 +377,13 @@ footer {
 
 .avatar-btn svg {
   display: block;
-  width: 42px;
-  height: 42px;
+  width: 46px; /* Slightly scaled up to adjust for the structural outer white stroke padding */
+  height: 46px;
 }
 
 .avatar-btn:hover {
   transform: scale(1.12) rotate(4deg);
-  filter: drop-shadow(0 0 14px rgba(0, 210, 255, 0.55));
+  filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.25));
 }
 
 .avatar-btn:active {
@@ -456,7 +456,7 @@ footer {
   footer { padding-top: 1rem; gap: 1rem; }
   .social-nav a { padding: 0.6rem; }
   .social-nav svg { width: 18px; height: 18px; }
-  .avatar-btn svg { width: 36px; height: 36px; }
+  .avatar-btn svg { width: 40px; height: 40px; }
 }
 </style>
 </head>
@@ -523,10 +523,17 @@ footer {
 
     <div class="avatar-btn-wrapper">
       <button class="avatar-btn" id="avatar-trigger" aria-label="Avatar Interaction">
-        <svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="-3 -3 106 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+          
+          <g stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="50" cy="57.5" r="33.5" fill="#ffffff" />
+            <rect x="13.5" y="39.5" width="73" height="21" rx="10.5" fill="#ffffff" />
+            <path d="M37 69C40 74.5 45 76.5 50 76.5C55 76.5 60 74.5 63 69" />
+          </g>
+          
           <circle cx="50" cy="57.5" r="33.5" stroke="#000000" stroke-width="7" fill="#ffffff"/>
           
-          <rect x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="#000000" stroke-width="7" fill="#000000"/>
+          <rect x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="#000000" stroke-width="7" fill="#ffffff"/>
           
           <path d="M37 69C40 74.5 45 76.5 50 76.5C55 76.5 60 74.5 63 69" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
         </svg>
