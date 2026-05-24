@@ -19,6 +19,9 @@
   --siri-purple: #8000ff;
   --siri-magenta: #ff007f;
   --siri-cyan: #00ffff;
+
+  /* Custom Glow Color */
+  --avatar-glow-color: #3333FF;
 }
 
 /* Register Custom Properties to allow smooth, independent coordinate animation */
@@ -393,13 +396,13 @@ footer {
 }
 
 .avatar-btn:hover svg {
-  /* Updated shadow highlight to clean neon blue rather than green tint */
+  /* Updated shadow highlight to custom blue from image */
   filter: 
     drop-shadow(1px 0 0 #ffffff) 
     drop-shadow(-1px 0 0 #ffffff) 
     drop-shadow(0 1px 0 #ffffff) 
     drop-shadow(0 -1px 0 #ffffff)
-    drop-shadow(0 0 12px var(--siri-electric-blue));
+    drop-shadow(0 0 12px var(--avatar-glow-color));
 }
 
 .avatar-btn:active {
