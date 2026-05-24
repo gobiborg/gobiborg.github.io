@@ -93,6 +93,8 @@
             margin-top: auto;
             margin-bottom: auto; /* Centers content block within vertical layout space */
             padding: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
         }
 
         p {
@@ -104,15 +106,11 @@
             margin-bottom: 1rem;
         }
 
-        p:last-of-type {
-            margin-bottom: 0;
-        }
-
         /* Custom Feature List Architecture */
         .feature-list {
             list-style: none;
             padding-left: 0;
-            margin: 0.5rem 0 1rem 0;
+            margin: 0rem 0 1rem 0;
         }
 
         .feature-list li {
@@ -147,6 +145,41 @@
 
         p a:hover {
             text-decoration-color: var(--text-main);
+        }
+
+        /* Centered 90's Retro Button Container Layout */
+        .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 1.25rem 0;
+        }
+
+        /* 90s Vintage UI Beveled Component Definition */
+        .retro-btn {
+            background-color: #ced4da; /* Classic structural hardware gray */
+            color: #000000 !important;
+            font-family: "MS Sans Serif", Geneva, "Courier New", monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-decoration: none !important;
+            padding: 0.65rem 1.5rem;
+            border: 2px solid;
+            /* Light source simulated from top-left (White) to bottom-right (Dark Gray) */
+            border-color: #ffffff #868e96 #868e96 #ffffff;
+            box-shadow: 1px 1px 0px 1px #000000;
+            text-align: center;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            transition: none; /* Vintage UI switches states instantly without modern transition lag */
+        }
+
+        /* Inverted Light Matrix on Active Interaction Press */
+        .retro-btn:active {
+            border-color: #868e96 #ffffff #ffffff #868e96;
+            box-shadow: none;
+            transform: translate(1px, 1px);
         }
 
         /* Links Section */
@@ -212,8 +245,10 @@
         @media (max-height: 660px) {
             .container { padding: 1.5rem 1.5rem; }
             h1 { margin-bottom: 0.25rem; }
-            .content-block { padding: 0.75rem 0; }
+            .content-block { padding: 0.5rem 0; }
             p { margin-bottom: 0.5rem; }
+            .btn-wrapper { margin: 0.5rem 0; }
+            .retro-btn { padding: 0.5rem 1.25rem; }
             .links { padding-top: 1rem; }
             .feature-list { margin: 0.25rem 0 0.5rem 0; }
         }
@@ -228,16 +263,22 @@
         </div>
         
         <section class="content-block">
-            <p>Tech brands and products need distribution to stand out and stay ahead. Better content and user experience provide an edge in distribution.</p>
+            <p>Tech brands and products need distribution to stand out and stay ahead. Better content provides distribution with communication, audience attraction and retention.</p>
             
             <p>I make:</p>
             <ul class="feature-list">
                 <li>Content with motion graphics for brand visuals, product launches, updates and showcases.</li>
-                <li>Interaction design for web and mobile.</li>
+                <li>Dynamic and playful interaction design for web and mobile applications.</li>
             </ul>
 
             <p>If you are a studio, brand or founder <b>in tech</b>, send me a message on socials or a mail at <a href="mailto:hi@gobiborg.com">hi@gobiborg.com</a></p>
-            <p>Checkout my work | BLIP</p>
+            
+            <!-- Centered 90's Windows Style Button Block -->
+            <div class="btn-wrapper">
+                <a href="https://blip.video" class="retro-btn" target="_blank" rel="noopener noreferrer">
+                    Checkout my work | BLIP
+                </a>
+            </div>
         </section>
 
         <nav class="links">
