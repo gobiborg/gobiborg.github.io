@@ -13,13 +13,13 @@
   --text-body: #b3b3b3;
   --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   
-  /* High-Saturate Vibrant UI Palette */
-  --google-blue: #2f7fff;
-  --google-purple: #a13eff;
-  --google-red: #ff3b30;
-  --google-orange: #ff9500;
-  --google-yellow: #ffcc00;
-  --google-green: #34c759;
+  /* High-Saturate Vibrant UI Palette from Image */
+  --google-blue: #0076ff;
+  --google-purple: #b57eff;
+  --google-red: #ff3333;
+  --google-orange: #ff6b35;
+  --google-yellow: #ffdd00;
+  --google-green: #00e640;
 }
 
 * {
@@ -78,17 +78,16 @@ h1 {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-block;
 
-  /* Restored structural layout with the updated Playful/Vibrant Radial Engine */
-  background: radial-gradient(
-    circle at 20% 30%,
-    var(--google-blue) 0%,
-    var(--google-purple) 20%,
-    var(--google-red) 40%,
-    var(--google-orange) 60%,
-    var(--google-yellow) 80%,
-    var(--google-green) 100%
-  );
-  background-size: 260% 260%;
+  /* Overlapping CSS Radial Mesh Engine mapped to match the exact uploaded image */
+  background-image: 
+    radial-gradient(circle at 20% 20%, var(--google-purple) 0%, transparent 40%),
+    radial-gradient(circle at 55% 15%, var(--google-yellow) 0%, transparent 45%),
+    radial-gradient(circle at 90% 10%, var(--google-green) 0%, transparent 40%),
+    radial-gradient(circle at 25% 85%, var(--google-red) 0%, var(--google-orange) 25%, transparent 55%),
+    radial-gradient(circle at 85% 80%, var(--google-blue) 0%, transparent 50%);
+  background-color: var(--google-red); /* Warm base bleed */
+  
+  background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -406,13 +405,13 @@ footer {
 /* Multi-Axis Swirling Wave Keyframe Engine */
 @keyframes googleFluidWave {
   0% {
-    background-position: 0% 20%;
+    background-position: 0% 50%;
   }
   50% {
-    background-position: 70% 80%;
+    background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 20%;
+    background-position: 0% 50%;
   }
 }
 
