@@ -174,7 +174,7 @@
             transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
         }
 
-        /* Interactive States - Giving it clear visual behavior */
+        /* Standardized Interaction States for Chromium/Brave Compliance */
         .modern-btn:hover {
             background-color: rgba(255, 255, 255, 0.12);
             /* Soft brand glow highlight on hover using your color stack */
@@ -183,6 +183,7 @@
             transform: translateY(-2px);
         }
 
+        /* Cleaned active syntax state so click engines trigger properly */
         .modern-btn:active {
             transform: translateY(0);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
