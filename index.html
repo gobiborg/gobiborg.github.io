@@ -7,559 +7,580 @@
 <style>
 /* Modern CSS Reset & Variable Setup */
 :root {
---bg-color: #0a0a0a;
---text-main: #ffffff;
---text-muted: #888888;
---text-body: #b3b3b3;
---font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --bg-color: #0a0a0a;
+  --text-main: #ffffff;
+  --text-muted: #888888;
+  --text-body: #b3b3b3;
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Google Modern UI Fluid Palette */
+  --google-blue: #4285f4;
+  --google-purple: #9b51e0;
+  --google-red: #ea4335;
+  --google-orange: #f97316;
+  --google-yellow: #fbbc05;
+  --google-green: #34a853;
 }
 
 * {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-background-color: var(--bg-color);
-color: var(--text-main);
-font-family: var(--font-stack);
-min-height: 100vh;
-min-height: 100dvh;
-width: 100%;
-overflow-x: hidden;
-overflow-y: auto;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 2.5rem 2rem;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-stack);
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 2rem;
 }
 
 /* Container & Entrance Animation */
 .container {
-max-width: 600px;
-width: 100%;
-opacity: 0;
-transform: translateY(20px);
-animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-display: flex;
-flex-direction: column;
-gap: 2.5rem;
+  max-width: 600px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 /* Centered Header Block */
 .header-block {
-text-align: center;
-width: 100%;
-perspective: 600px; /* Enables clean 3D transforms for WordArt */
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  text-align: center;
+  width: 100%;
+  perspective: 600px; /* Enables clean 3D transforms for WordArt */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
-font-size: clamp(3rem, 10vw, 5.5rem); 
-font-weight: 900;
-letter-spacing: -0.04em; 
-line-height: 0.9;
-margin-bottom: 0.75rem;
-text-transform: uppercase;
-transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-display: inline-block;
+  font-size: clamp(3rem, 10vw, 5.5rem); 
+  font-weight: 900;
+  letter-spacing: -0.04em; 
+  line-height: 0.9;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
 
-/* Optimized Dynamic Gradient Setup */
-background: linear-gradient(
-45deg, 
-#7c3aed, 
-#2563eb, 
-#db2777, 
-#f97316, 
-#7c3aed
-);
-background-size: 200% 200%;
-background-clip: text;
--webkit-background-clip: text;
-color: transparent;
--webkit-text-fill-color: transparent;
-animation: gradientWave 8s ease infinite;
+  /* Premium Overlapping Google UI Gradient Blend */
+  background: linear-gradient(
+    135deg,
+    var(--google-blue) 0%,
+    var(--google-purple) 18%,
+    var(--google-red) 40%,
+    var(--google-orange) 65%,
+    var(--google-yellow) 80%,
+    var(--google-green) 100%
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: googleFluidWave 12s ease-in-out infinite;
 }
 
 /* ==========================================
-          THE ULTIMATE RETRO WORDART EXPANSION
-          ========================================== */
+   THE ULTIMATE RETRO WORDART EXPANSION
+   ========================================== */
 
 /* 1. The Rainbow Arch (The Absolute Classic) */
 h1.wa-rainbow {
-font-family: "Impact", "Arial Black", sans-serif;
-background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-background-clip: text; -webkit-background-clip: text;
-color: transparent; -webkit-text-fill-color: transparent;
--webkit-text-stroke: 1.5px #000000;
-filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.8));
-transform: scaleY(1.2) skewX(-10deg) rotate(-3deg);
-animation: none; letter-spacing: 0.05em;
+  font-family: "Impact", "Arial Black", sans-serif;
+  background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+  background-clip: text; -webkit-background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px #000000;
+  filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.8));
+  transform: scaleY(1.2) skewX(-10deg) rotate(-3deg);
+  animation: none; letter-spacing: 0.05em;
 }
 
 /* 2. The Blue 3D Extrusion */
 h1.wa-blue3d {
-font-family: "Impact", "Arial Black", sans-serif;
-background: linear-gradient(to bottom, #66ccff, #0033cc);
-background-clip: text; -webkit-background-clip: text;
-color: transparent; -webkit-text-fill-color: transparent;
--webkit-text-stroke: 1px #000033;
-transform: rotateX(25deg) rotateY(-20deg) rotateZ(-5deg);
-animation: none;
-text-shadow: 
-1px 1px 0px #001f80, 2px 2px 0px #001f80, 3px 3px 0px #001f80,
-4px 4px 0px #001f80, 5px 5px 0px #001f80, 6px 6px 6px rgba(0,0,0,0.9);
+  font-family: "Impact", "Arial Black", sans-serif;
+  background: linear-gradient(to bottom, #66ccff, #0033cc);
+  background-clip: text; -webkit-background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #000033;
+  transform: rotateX(25deg) rotateY(-20deg) rotateZ(-5deg);
+  animation: none;
+  text-shadow: 
+    1px 1px 0px #001f80, 2px 2px 0px #001f80, 3px 3px 0px #001f80,
+    4px 4px 0px #001f80, 5px 5px 0px #001f80, 6px 6px 6px rgba(0,0,0,0.9);
 }
 
 /* 3. Silver Horizontal Outline & Cast Shadow */
 h1.wa-silver {
-font-family: "Arial Black", sans-serif;
-font-style: italic;
-background: linear-gradient(to bottom, #ffffff 0%, #a6a6a6 50%, #ffffff 100%);
-background-clip: text; -webkit-background-clip: text;
-color: transparent; -webkit-text-fill-color: transparent;
--webkit-text-stroke: 1.5px #444444;
-transform: skewX(-15deg); animation: none;
-filter: drop-shadow(-6px 6px 1px rgba(0,0,0,0.7));
+  font-family: "Arial Black", sans-serif;
+  font-style: italic;
+  background: linear-gradient(to bottom, #ffffff 0%, #a6a6a6 50%, #ffffff 100%);
+  background-clip: text; -webkit-background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px #444444;
+  transform: skewX(-15deg); animation: none;
+  filter: drop-shadow(-6px 6px 1px rgba(0,0,0,0.7));
 }
 
 /* 4. Flame Gradient with Bottom Block Shadow */
 h1.wa-flame {
-font-family: "Impact", sans-serif;
-background: linear-gradient(to bottom, #ffff00, #ff3300);
-background-clip: text; -webkit-background-clip: text;
-color: transparent; -webkit-text-fill-color: transparent;
--webkit-text-stroke: 1px #330000;
-transform: scale(1.1) translateY(-5px); animation: none;
-filter: drop-shadow(0px 7px 0px #4a0000);
+  font-family: "Impact", sans-serif;
+  background: linear-gradient(to bottom, #ffff00, #ff3300);
+  background-clip: text; -webkit-background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #330000;
+  transform: scale(1.1) translateY(-5px); animation: none;
+  filter: drop-shadow(0px 7px 0px #4a0000);
 }
 
 /* 5. Pink/Purple Neon Slant */
 h1.wa-neon {
-font-family: "Times New Roman", Times, serif;
-font-weight: bold;
-font-style: italic;
-background: linear-gradient(135deg, #ff00ff, #6600cc);
-background-clip: text; -webkit-background-clip: text;
-color: transparent; -webkit-text-fill-color: transparent;
--webkit-text-stroke: 1px #ffccff;
-transform: skewY(-6deg) rotate(-2deg) scaleX(0.9); animation: none;
-filter: drop-shadow(4px 4px 0px #220033);
-letter-spacing: 0.08em;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-style: italic;
+  background: linear-gradient(135deg, #ff00ff, #6600cc);
+  background-clip: text; -webkit-background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #ffccff;
+  transform: skewY(-6deg) rotate(-2deg) scaleX(0.9); animation: none;
+  filter: drop-shadow(4px 4px 0px #220033);
+  letter-spacing: 0.08em;
 }
 
 /* 6. Desert Gold Invert Arch */
 h1.wa-gold {
-font-family: "Copperplate", "Arial Black", sans-serif;
-background: linear-gradient(to bottom, #2b1d0c 0%, #d4af37 40%, #ffffff 50%, #aa7c11 60%, #4a3206 100%);
-background-clip: text; -webkit-background-clip: text;
-color: transparent; -webkit-text-fill-color: transparent;
--webkit-text-stroke: 1.2px #111;
-transform: perspective(400px) rotateX(-15deg) scaleY(1.1); animation: none;
-filter: drop-shadow(3px 4px 2px rgba(0,0,0,0.8));
+  font-family: "Copperplate", "Arial Black", sans-serif;
+  background: linear-gradient(to bottom, #2b1d0c 0%, #d4af37 40%, #ffffff 50%, #aa7c11 60%, #4a3206 100%);
+  background-clip: text; -webkit-background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.2px #111;
+  transform: perspective(400px) rotateX(-15deg) scaleY(1.1); animation: none;
+  filter: drop-shadow(3px 4px 2px rgba(0,0,0,0.8));
 }
 
 /* 7. Bright Lime Green Outline Wireframe */
 h1.wa-lime {
-font-family: "Comic Sans MS", "Arial Black", sans-serif;
-background: none;
-color: #000000;
--webkit-text-fill-color: #000000;
--webkit-text-stroke: 2px #00ff00;
-transform: rotate(4deg) scale(0.95); animation: none;
-filter: drop-shadow(4px 4px 0px #003300);
+  font-family: "Comic Sans MS", "Arial Black", sans-serif;
+  background: none;
+  color: #000000;
+  -webkit-text-fill-color: #000000;
+  -webkit-text-stroke: 2px #00ff00;
+  transform: rotate(4deg) scale(0.95); animation: none;
+  filter: drop-shadow(4px 4px 0px #003300);
 }
 
 /* 8. Retro Corporate Shadow (Tilted Semi-Transparent) */
 h1.wa-corporate {
-font-family: "Arial Black", sans-serif;
-background: #ffffff;
-background-clip: text; -webkit-background-clip: text;
-color: transparent; -webkit-text-fill-color: transparent;
--webkit-text-stroke: 1px #888888;
-transform: rotateX(15deg) skewX(12deg); animation: none;
-text-shadow: 
--1px 1px 0px #444, -2px 2px 0px #444, -3px 3px 0px #333,
--4px 4px 4px rgba(0,0,0,0.6);
+  font-family: "Arial Black", sans-serif;
+  background: #ffffff;
+  background-clip: text; -webkit-background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #888888;
+  transform: rotateX(15deg) skewX(12deg); animation: none;
+  text-shadow: 
+    -1px 1px 0px #444, -2px 2px 0px #444, -3px 3px 0px #333,
+    -4px 4px 4px rgba(0,0,0,0.6);
 }
 
 /* 9. The Mythic Vertical WordArt */
 h1.wa-vertical {
-font-family: "Impact", "Arial Black", sans-serif;
-background: linear-gradient(to bottom, #00ffff, #00008b);
-background-clip: text; -webkit-background-clip: text;
-color: transparent; -webkit-text-fill-color: transparent;
--webkit-text-stroke: 1px #000033;
-animation: none;
-letter-spacing: -0.05em;
-line-height: 0.85;
-font-size: clamp(2.5rem, 8vw, 4rem);
-transform: rotateY(15deg);
-filter: drop-shadow(5px 2px 0px rgba(0,0,0,0.7));
-margin-bottom: 1.5rem;
+  font-family: "Impact", "Arial Black", sans-serif;
+  background: linear-gradient(to bottom, #00ffff, #00008b);
+  background-clip: text; -webkit-background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px #000033;
+  animation: none;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  transform: rotateY(15deg);
+  filter: drop-shadow(5px 2px 0px rgba(0,0,0,0.7));
+  margin-bottom: 1.5rem;
 }
 
 h3 {
-font-size: clamp(0.95rem, 3.8vw, 1.25rem);
-font-weight: 400;
-color: var(--text-muted);
-letter-spacing: 0.02em; 
-line-height: 1.4;
-text-transform: lowercase;
-transition: margin-top 0.3s ease;
+  font-size: clamp(0.95rem, 3.8vw, 1.25rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.02em; 
+  line-height: 1.4;
+  text-transform: lowercase;
+  transition: margin-top 0.3s ease;
 }
 
 /* Body Copy Styling */
 .content-block {
-text-align: left;
-display: flex;
-flex-direction: column;
-gap: 1.25rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 p {
-font-size: clamp(0.9rem, 3.5vw, 1.05rem); 
-font-weight: 400;
-color: var(--text-body);
-letter-spacing: -0.01em;
-line-height: 1.5;
+  font-size: clamp(0.9rem, 3.5vw, 1.05rem); 
+  font-weight: 400;
+  color: var(--text-body);
+  letter-spacing: -0.01em;
+  line-height: 1.5;
 }
 
 .feature-list {
-list-style: none;
-display: flex;
-flex-direction: column;
-gap: 0.5rem;
-padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-left: 0;
 }
 
 .feature-list li {
-font-size: clamp(0.9rem, 3.5vw, 1.05rem);
-color: var(--text-body);
-line-height: 1.5;
-position: relative;
-padding-left: 1.25rem;
+  font-size: clamp(0.9rem, 3.5vw, 1.05rem);
+  color: var(--text-body);
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.25rem;
 }
 
 .feature-list li::before {
-content: "—";
-position: absolute;
-left: 0;
-color: var(--text-muted);
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
 }
 
 p a {
-color: var(--text-main);
-text-decoration: underline;
-text-underline-offset: 4px;
-text-decoration-color: var(--text-muted);
-transition: text-decoration-color 0.2s ease;
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--text-muted);
+  transition: text-decoration-color 0.2s ease;
 }
 
 p a:hover {
-text-decoration-color: var(--text-main);
+  text-decoration-color: var(--text-main);
 }
 
 .btn-wrapper {
-display: flex;
-justify-content: center;
-width: 100%;
-margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
 .modern-btn {
-background-color: rgba(255, 255, 255, 0.07);
-color: var(--text-main);
-font-size: 0.95rem;
-font-weight: 600;
-letter-spacing: -0.01em;
-text-decoration: none;
-padding: 0.85rem 2.25rem;
-border: 1px solid rgba(255, 255, 255, 0.25);
-border-radius: 8px;
-text-align: center;
-white-space: nowrap;
-cursor: pointer;
-user-select: none;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  padding: 0.85rem 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
 
 .modern-btn:hover {
-background-color: rgba(255, 255, 255, 0.12);
-border-color: #2563eb; 
-box-shadow: 0 0 20px rgba(37, 99, 235, 0.3);
-transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: var(--google-blue); 
+  box-shadow: 0 0 20px rgba(66, 133, 244, 0.3);
+  transform: translateY(-2px);
 }
 
 .modern-btn:active {
-transform: translateY(0);
-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-border-color: #7c3aed;
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  border-color: var(--google-purple);
 }
 
 /* Footer Layout Structure */
 footer {
-border-top: 1px solid #222;
-padding-top: 1.5rem;
-width: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 1.5rem;
+  border-top: 1px solid #222;
+  padding-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .social-nav ul {
-display: flex;
-gap: 0.5rem;
-align-items: center;
-justify-content: center;
-list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
 }
 
 .social-nav a {
-color: var(--text-muted);
-text-decoration: none;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-padding: 0.75rem; 
-transition: color 0.25s ease, transform 0.2s ease;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem; 
+  transition: color 0.25s ease, transform 0.2s ease;
 }
 
 .social-nav svg {
-display: block;
-width: 20px;
-height: 20px;
-fill: currentColor;
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 
 .social-nav a:hover {
-color: var(--text-main);
-transform: translateY(-2px);
+  color: var(--text-main);
+  transform: translateY(-2px);
 }
 
 /* Bottom avatar button styling */
 .avatar-btn-wrapper {
-display: flex;
-justify-content: center;
-width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .avatar-btn {
-background: none;
-border: none;
-padding: 0;
-cursor: pointer;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease;
-outline: none;
-border-radius: 50%;
--webkit-tap-highlight-color: transparent; /* Fixes flash on iOS touch */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease;
+  outline: none;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent; 
 }
 
 .avatar-btn svg {
-display: block;
-width: 42px;
-height: 42px;
+  display: block;
+  width: 42px;
+  height: 42px;
 }
 
-/* WebKit/iOS Safe Visor Class: Uses pure solid CSS fill fallback rules */
+/* Visor Uses Pure Variable Map Fallback */
 .avatar-btn .visor-path {
-fill: #4e84e7; /* Reliable fallback color for picky mobile engines */
+  fill: var(--google-blue);
 }
 
 .avatar-btn:hover {
-transform: scale(1.12) rotate(4deg);
-filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.4));
+  transform: scale(1.12) rotate(4deg);
+  filter: drop-shadow(0 0 12px rgba(66, 133, 244, 0.4));
 }
 
 .avatar-btn:active {
-transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 /* Entrance Keyframe */
 @keyframes fadeInUp {
-to {
-opacity: 1;
-transform: translateY(0);
-}
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Smoothed Fluid Wave Keyframe */
-@keyframes gradientWave {
-0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
+/* Google-Inspired Slow Multi-Axis Wave */
+@keyframes googleFluidWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Accessibility: Motion Reductions */
 @media (prefers-reduced-motion: reduce) {
-.container {
-animation: none;
-opacity: 1;
-transform: none;
-}
-h1 {
-animation: none;
-background: none;
-color: var(--text-main);
--webkit-text-fill-color: var(--text-main);
-}
-.social-nav a:hover, .modern-btn:hover, .avatar-btn:hover {
-transform: none;
-box-shadow: none;
-filter: none;
-}
+  .container {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  h1 {
+    animation: none;
+    background: none;
+    color: var(--text-main);
+    -webkit-text-fill-color: var(--text-main);
+  }
+  .social-nav a:hover, .modern-btn:hover, .avatar-btn:hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
 }
 
 /* Small screen height optimization */
 @media (max-height: 680px) {
-body { padding: 1.5rem 1.5rem; }
-.container { gap: 1.5rem; }
-h1 { margin-bottom: 0.25rem; }
-.content-block { gap: 0.75rem; }
-.modern-btn { padding: 0.65rem 2rem; font-size: 0.9rem; }
-footer { padding-top: 1rem; gap: 1rem; }
-.social-nav a { padding: 0.6rem; }
-.social-nav svg { width: 18px; height: 18px; }
-.avatar-btn svg { width: 36px; height: 36px; }
+  body { padding: 1.5rem 1.5rem; }
+  .container { gap: 1.5rem; }
+  h1 { margin-bottom: 0.25rem; }
+  .content-block { gap: 0.75rem; }
+  .modern-btn { padding: 0.65rem 2rem; font-size: 0.9rem; }
+  footer { padding-top: 1rem; gap: 1rem; }
+  .social-nav a { padding: 0.6rem; }
+  .social-nav svg { width: 18px; height: 18px; }
+  .avatar-btn svg { width: 36px; height: 36px; }
 }
 </style>
 </head>
 <body>
 
 <main class="container">
-<header class="header-block">
-<h1 id="main-title">GOBIBORG</h1>
-<h3 id="main-subtitle">Motion and interaction designer in tech</h3>
-</header>
+  <header class="header-block">
+    <h1 id="main-title">GOBIBORG</h1>
+    <h3 id="main-subtitle">Motion and interaction designer in tech</h3>
+  </header>
 
-<section class="content-block">
-<p>Tech brands and products need distribution to stand out and stay ahead in the market. Better content and interaction design provide an edge in distribution.</p>
+  <section class="content-block">
+    <p>Tech brands and products need distribution to stand out and stay ahead in the market. Better content and interaction design provide an edge in distribution.</p>
 
-<p>I make:</p>
-<ul class="feature-list">
-<li>Content with motion graphics for brand visuals, product launches, updates and showcases.</li>
-<li>Expressive interaction design using Rive.</li>
-<li>Design explorations, concepts, mockups and prototypes.</li>
-</ul>
+    <p>I make:</p>
+    <ul class="feature-list">
+      <li>Content with motion graphics for brand visuals, product launches, updates and showcases.</li>
+      <li>Expressive interaction design using Rive.</li>
+      <li>Design explorations, concepts, mockups and prototypes.</li>
+    </ul>
 
-<p>If you like my content/design, let's explore how we can work together. Just send me a message on socials or mail at <a href="mailto:work@gobiborg.com">work@gobiborg.com</a></p>
+    <p>If you like my content/design, let's explore how we can work together. Just send me a message on socials or mail at <a href="mailto:work@gobiborg.com">work@gobiborg.com</a></p>
 
-<div class="btn-wrapper">
-<a href="https://blip.video" class="modern-btn" target="_blank" rel="noopener noreferrer">
-Checkout my work
-</a>
-</div>
-</section>
+    <div class="btn-wrapper">
+      <a href="https://blip.video" class="modern-btn" target="_blank" rel="noopener noreferrer">
+        Checkout my work
+      </a>
+    </div>
+  </section>
 
-<footer>
-<nav class="social-nav" aria-label="Social Profiles">
-<ul>
-<li>
-<a href="https://x.com/gobiborg" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
-<svg viewBox="0 0 24 24">
-<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-</svg>
-</a>
-</li>
-<li>
-<a href="https://www.youtube.com/@GOBIBORG" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-<svg viewBox="0 0 24 24">
-<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-</svg>
-</a>
-</li>
-<li>
-<a href="https://www.linkedin.com/in/gobiborg/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-<svg viewBox="0 0 24 24">
-<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-</svg>
-</a>
-</li>
-<li>
-<a href="https://www.instagram.com/gobiborg" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-<svg viewBox="0 0 24 24">
-<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-</svg>
-</a>
-</li>
-</ul>
-</nav>
+  <footer>
+    <nav class="social-nav" aria-label="Social Profiles">
+      <ul>
+        <li>
+          <a href="https://x.com/gobiborg" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/@GOBIBORG" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93'.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/gobiborg/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/gobiborg" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-<div class="avatar-btn-wrapper">
-<button class="avatar-btn" id="avatar-trigger" aria-label="Avatar Interaction">
-<!-- Clean, multi-platform SVG setup avoiding nested <defs> bugs -->
-<svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="50" cy="57.5" r="33.5" stroke="#000000" stroke-width="7" fill="#ffffff"/>
-<rect class="visor-path" x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="#000000" stroke-width="7"/>
-<path d="M37 69C40 74.5 45 76.5 50 76.5C55 76.5 60 74.5 63 69" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
-</svg>
-</button>
-</div>
-</footer>
+    <div class="avatar-btn-wrapper">
+      <button class="avatar-btn" id="avatar-trigger" aria-label="Avatar Interaction">
+        <svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="57.5" r="33.5" stroke="#000000" stroke-width="7" fill="#ffffff"/>
+          <rect class="visor-path" x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="#000000" stroke-width="7"/>
+          <path d="M37 69C40 74.5 45 76.5 50 76.5C55 76.5 60 74.5 63 69" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </footer>
 </main>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-const avatar = document.getElementById('avatar-trigger');
-const title = document.getElementById('main-title');
-const subtitle = document.getElementById('main-subtitle');
+  const avatar = document.getElementById('avatar-trigger');
+  const title = document.getElementById('main-title');
+  const subtitle = document.getElementById('main-subtitle');
 
-// Expanded list of premium retro WordArt classes
-const styles = [
-'wa-rainbow',
-'wa-blue3d',
-'wa-silver',
-'wa-flame',
-'wa-neon',
-'wa-gold',
-'wa-lime',
-'wa-corporate',
-'wa-vertical'
-];
+  // Expanded list of premium retro WordArt classes
+  const styles = [
+    'wa-rainbow',
+    'wa-blue3d',
+    'wa-silver',
+    'wa-flame',
+    'wa-neon',
+    'wa-gold',
+    'wa-lime',
+    'wa-corporate',
+    'wa-vertical'
+  ];
 
-let currentStyleIndex = -1; // -1 represents the slick default look
+  let currentStyleIndex = -1; // -1 represents the slick default look
 
-avatar.addEventListener('click', (e) => {
-e.preventDefault(); // Prevents double click-zoom behaviors on iOS systems
+  avatar.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevents double click-zoom behaviors on iOS systems
+    
+    // Tactile haptic feedback for mobile engines supporting it
+    if (navigator.vibrate) {
+      navigator.vibrate(15);
+    }
 
-// Clear out the previous style
-if (currentStyleIndex !== -1) {
-title.classList.remove(styles[currentStyleIndex]);
+    // Clear out the previous style
+    if (currentStyleIndex !== -1) {
+      title.classList.remove(styles[currentStyleIndex]);
 
-// Reset layout attributes if leaving vertical layout
-if (styles[currentStyleIndex] === 'wa-vertical') {
-title.style.writingMode = '';
-subtitle.style.marginTop = '';
-}
-}
+      // Reset layout attributes if leaving vertical layout
+      if (styles[currentStyleIndex] === 'wa-vertical') {
+        title.style.writingMode = '';
+        title.style.display = '';
+        subtitle.style.marginTop = '';
+      }
+    }
 
-currentStyleIndex++;
+    currentStyleIndex++;
 
-// If we've circled through all of them, head back to default base state
-if (currentStyleIndex >= styles.length) {
-currentStyleIndex = -1;
-} else {
-const nextStyle = styles[currentStyleIndex];
-title.classList.add(nextStyle);
+    // If we've circled through all of them, head back to default base state
+    if (currentStyleIndex >= styles.length) {
+      currentStyleIndex = -1;
+    } else {
+      const nextStyle = styles[currentStyleIndex];
+      title.classList.add(nextStyle);
 
-// Handle specific structural properties for the legendary vertical layout
-if (nextStyle === 'wa-vertical') {
-title.style.writingMode = 'vertical-rl';
-subtitle.style.marginTop = '1.5rem';
-}
-}
-});
+      // Handle specific structural layout fixes for vertical mode
+      if (nextStyle === 'wa-vertical') {
+        title.style.writingMode = 'vertical-rl';
+        title.style.display = 'inline-block';
+        subtitle.style.marginTop = '1.5rem';
+      }
+    }
+  });
 });
 </script>
 </body>
