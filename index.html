@@ -183,6 +183,10 @@
             border-top: 1px solid #222;
             padding-top: 1.5rem;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .social-nav ul {
@@ -214,6 +218,40 @@
             transform: translateY(-2px);
         }
 
+        /* utemost bottom avatar button styling */
+        .avatar-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .avatar-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease;
+            outline: none;
+            border-radius: 50%;
+        }
+
+        .avatar-btn svg {
+            width: 42px;
+            height: 42px;
+        }
+
+        .avatar-btn:hover {
+            transform: scale(1.12) rotate(4deg);
+            filter: drop-shadow(0 0 12px rgba(37, 99, 235, 0.4));
+        }
+
+        .avatar-btn:active {
+            transform: scale(0.95);
+        }
+
         /* Entrance Keyframe */
         @keyframes fadeInUp {
             to {
@@ -242,9 +280,10 @@
                 color: var(--text-main);
                 -webkit-text-fill-color: var(--text-main);
             }
-            .social-nav a:hover, .modern-btn:hover {
+            .social-nav a:hover, .modern-btn:hover, .avatar-btn:hover {
                 transform: none;
                 box-shadow: none;
+                filter: none;
             }
         }
 
@@ -255,9 +294,10 @@
             h1 { margin-bottom: 0.25rem; }
             .content-block { gap: 0.75rem; }
             .modern-btn { padding: 0.65rem 2rem; font-size: 0.9rem; }
-            footer { padding-top: 1rem; }
+            footer { padding-top: 1rem; gap: 1rem; }
             .social-nav a { padding: 0.6rem; }
             .social-nav svg { width: 18px; height: 18px; }
+            .avatar-btn svg { width: 36px; height: 36px; }
         }
     </style>
 </head>
@@ -320,6 +360,22 @@
                     </li>
                 </ul>
             </nav>
+
+            <div class="avatar-btn-wrapper">
+                <button class="avatar-btn" aria-label="Avatar Interaction">
+                    <svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="visorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#4e84e7"/>
+                                <stop offset="100%" stop-color="#aaccff"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="57.5" r="33.5" stroke="#000000" stroke-width="7" fill="#ffffff"/>
+                        <rect x="13.5" y="39.5" width="73" height="21" rx="10.5" fill="url(#visorGradient)" stroke="#000000" stroke-width="7"/>
+                        <path d="M37 69C40 74.5 45 76.5 50 76.5C55 76.5 60 74.5 63 69" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
         </footer>
     </main>
 
