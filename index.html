@@ -14,12 +14,13 @@
   --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   
   /* High-Saturate Vibrant UI Palette from Image */
-  --google-blue: #0076ff;
-  --google-purple: #b57eff;
-  --google-red: #ff3333;
-  --google-orange: #ff6b35;
-  --google-yellow: #ffdd00;
-  --google-green: #00e640;
+  --siri-blue: #0076ff;
+  --siri-purple: #b57eff;
+  --siri-red: #ff3333;
+  --siri-magenta: #e0007b;
+  --siri-orange: #ff6b35;
+  --siri-yellow: #ffdd00;
+  --siri-green: #00e640;
 }
 
 * {
@@ -78,14 +79,13 @@ h1 {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-block;
 
-  /* Overlapping CSS Radial Mesh Engine mapped to match the exact uploaded image */
-  background-image: 
-    radial-gradient(circle at 20% 20%, var(--google-purple) 0%, transparent 40%),
-    radial-gradient(circle at 55% 15%, var(--google-yellow) 0%, transparent 45%),
-    radial-gradient(circle at 90% 10%, var(--google-green) 0%, transparent 40%),
-    radial-gradient(circle at 25% 85%, var(--google-red) 0%, var(--google-orange) 25%, transparent 55%),
-    radial-gradient(circle at 85% 80%, var(--google-blue) 0%, transparent 50%);
-  background-color: var(--google-red); /* Warm base bleed */
+  /* Re-create Siri-Style wavy gradient effect mapping from the image */
+  background: radial-gradient(circle at 10% 20%, var(--siri-magenta) 0%, transparent 40%),
+              radial-gradient(circle at 50% 10%, var(--siri-purple) 0%, transparent 45%),
+              radial-gradient(circle at 90% 20%, var(--siri-magenta) 0%, transparent 40%),
+              radial-gradient(circle at 20% 70%, var(--siri-magenta) 0%, var(--siri-orange) 25%, transparent 55%),
+              radial-gradient(circle at 60% 80%, var(--siri-blue) 0%, transparent 50%);
+  background-color: var(--google-red); /* base bleed */
   
   background-size: 200% 200%;
   background-clip: text;
