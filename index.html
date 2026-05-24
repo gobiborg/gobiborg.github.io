@@ -49,7 +49,7 @@
             margin-bottom: 1.75rem;
         }
 
-        /* WebGL Canvas sized directly to the text bounds */
+        /* WebGL Canvas sits perfectly behind the text */
         #shader-canvas {
             position: absolute;
             top: 0;
@@ -58,21 +58,25 @@
             height: 100%;
             z-index: 1;
             pointer-events: none;
-            mix-blend-mode: screen;
         }
 
-        /* Big, Bold Typography acting as the mask */
+        /* Big, Bold Typography acting as a literal window to the canvas */
         h1 {
             font-size: clamp(3.5rem, 10vw, 6.5rem);
             font-weight: 900;
             letter-spacing: -0.03em;
             line-height: 0.85;
             text-transform: uppercase;
-            color: var(--bg-color); /* Matches the page background */
-            background-color: #fff; /* Acts as the reveal color */
-            mix-blend-mode: multiply; /* Multiplies with the canvas below it */
+            
+            /* The Magic: This cuts out the background and shows the canvas only inside the text vectors */
+            background: transparent;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            
             position: relative;
             z-index: 2;
+            mix-blend-mode: screen; /* Integrates cleanly with the black canvas background */
         }
 
         /* Subtitle H3 Styling */
@@ -194,7 +198,7 @@
             console.error('WebGL not supported');
         }
 
-        // Vertex Shader Source (Standard boilerplate to draw a full quad)
+        // Vertex Shader Source
         const vsSource = `
             attribute vec2 position;
             void main() {
@@ -208,7 +212,6 @@
             uniform vec2 u_resolution;
             uniform float u_time;
 
-            // Simple 2D Pseudo-noise function for fluid aesthetics
             vec2 rnoise(vec2 p) {
                 p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
                 return -1.0 + 2.0 * fract(sin(p) * 43758.5453123);
@@ -228,24 +231,21 @@
                 vec2 uv = gl_FragCoord.xy / u_resolution.xy;
                 uv.x *= u_resolution.x / u_resolution.y;
                 
-                // Slow moving coordinates down over time 
+                // Slow drifting controls
                 vec2 uv2 = uv * 3.0 + vec2(u_time * 0.04, u_time * 0.02);
                 
-                // Nesting noise layers to synthesize a high-end displacement look
                 float n1 = gradientNoise(uv2);
                 float n2 = gradientNoise(uv2 + vec2(n1 * 0.5, n1 * 0.3) + vec2(u_time * 0.01));
                 
-                // Color palette definition (Muted deep indigo, vivid magenta, bright cyan highlights)
-                vec3 baseColor = vec3(0.05, 0.08, 0.25);
-                vec3 accentColor1 = vec3(0.72, 0.12, 0.54); 
-                vec3 accentColor2 = vec3(0.15, 0.65, 0.85);
+                // Sleek, high-contrast dark iridescent colors
+                vec3 baseColor = vec3(0.02, 0.03, 0.15); // Deep base dark tone
+                vec3 accentColor1 = vec3(0.75, 0.15, 0.55); // Rich magenta
+                vec3 accentColor2 = vec3(0.15, 0.68, 0.88); // Cyan highlight
                 
-                // Map the final noise structures into a smooth color transition
                 vec3 finalColor = mix(baseColor, accentColor1, n1 * 0.5 + 0.5);
                 finalColor = mix(finalColor, accentColor2, n2 * 0.6 + 0.4);
                 
-                // Add a micro metallic sheen edge contrast
-                finalColor += vec3(pow(max(0.0, n2), 4.0) * 0.25);
+                finalColor += vec3(pow(max(0.0, n2), 4.0) * 0.3); // High sheen edge highlights
 
                 gl_FragColor = vec4(finalColor, 1.0);
             }
@@ -298,7 +298,7 @@
 
         function render(time) {
             resize();
-            time *= 0.001; // Convert to seconds
+            time *= 0.001;
 
             gl.useProgram(program);
             gl.enableVertexAttribArray(positionLocation);
