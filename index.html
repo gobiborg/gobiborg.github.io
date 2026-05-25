@@ -6,7 +6,7 @@
 <title>GOBIBORG | Motion Graphics Designer in Tech</title>
 <link rel="icon" href='data:image/svg+xml;utf8,<svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="57.5" r="33.5" stroke="%23000000" stroke-width="7" fill="%23ffffff"/><rect x="13.5" y="39.5" width="73" height="21" rx="10.5" stroke="%23000000" stroke-width="7" fill="%23ffffff"/><path d="M37 69C40 74.5 45 76.5 50 76.5C55 76.5 60 74.5 63 69" stroke="%23000000" stroke-width="6" stroke-linecap="round"/></svg>'>
 <style>
-/* Modern CSS Reset & Variable Setup */
+
 :root {
   --bg-color: #0a0a0a;
   --text-main: #ffffff;
@@ -14,18 +14,18 @@
   --text-body: #b3b3b3;
   --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   
-  /* Ultra-Vibrant Neon Siri Palette */
+  
   --siri-electric-blue: #00f2ff;
   --siri-deep-blue: #0040ff;
   --siri-purple: #8000ff;
   --siri-magenta: #ff007f;
   --siri-cyan: #00ffff;
 
-  /* Custom Glow Color */
+  
   --avatar-glow-color: #77DDFE;
 }
 
-/* Register Custom Properties to allow smooth, independent coordinate animation */
+
 @property --bubble-1-x { syntax: '<percentage>'; inherits: false; initial-value: 10%; }
 @property --bubble-1-y { syntax: '<percentage>'; inherits: false; initial-value: 30%; }
 @property --bubble-2-x { syntax: '<percentage>'; inherits: false; initial-value: 50%; }
@@ -58,7 +58,7 @@ body {
   padding: 2.5rem 2rem;
 }
 
-/* Container & Entrance Animation */
+
 .container {
   max-width: 600px;
   width: 100%;
@@ -70,7 +70,7 @@ body {
   gap: 2.5rem;
 }
 
-/* Centered Header Block */
+
 .header-block {
   text-align: center;
   width: 100%;
@@ -91,7 +91,7 @@ h1 {
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-block;
 
-  /* Dynamic Mesh Engine utilizing custom properties for multi-axis fluid blending */
+  
   background-image: 
     radial-gradient(circle at var(--bubble-1-x) var(--bubble-1-y), var(--siri-magenta) 0%, transparent 50%),
     radial-gradient(circle at var(--bubble-2-x) var(--bubble-2-y), var(--siri-purple) 0%, transparent 55%),
@@ -105,13 +105,11 @@ h1 {
   color: transparent;
   -webkit-text-fill-color: transparent;
   
-  /* Compounded multi-axis swirl animation active by default */
+  
   animation: siriMeshMorph 8s ease-in-out infinite alternate;
 }
 
-/* ==========================================
-   THE RETRO WORDART EXPANSION (PRESERVED)
-   ========================================== */
+
 
 h1.wa-rainbow {
   font-family: "Impact", "Arial Black", sans-serif;
@@ -228,7 +226,7 @@ h3 {
   transition: margin-top 0.3s ease;
 }
 
-/* Body Copy Styling */
+
 .content-block {
   text-align: left;
   display: flex;
@@ -317,7 +315,7 @@ p a:hover {
   border-color: var(--siri-purple);
 }
 
-/* Footer Layout Structure */
+
 footer {
   border-top: 1px solid #222;
   padding-top: 1.5rem;
@@ -358,7 +356,7 @@ footer {
   transform: translateY(-2px);
 }
 
-/* Bottom avatar button styling */
+
 .avatar-btn-wrapper {
   display: flex;
   justify-content: center;
@@ -384,7 +382,7 @@ footer {
   width: 42px;
   height: 42px;
   
-  /* Retains the tight hair-line profile frame */
+  
   filter: 
     drop-shadow(1px 0 0 #ffffff) 
     drop-shadow(-1px 0 0 #ffffff) 
@@ -397,7 +395,7 @@ footer {
 }
 
 .avatar-btn:hover svg {
-  /* Updated shadow highlight to custom blue from image */
+  
   filter: 
     drop-shadow(1px 0 0 #ffffff) 
     drop-shadow(-1px 0 0 #ffffff) 
@@ -410,7 +408,7 @@ footer {
   transform: scale(0.95);
 }
 
-/* Entrance Keyframe */
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -418,7 +416,7 @@ footer {
   }
 }
 
-/* Liquid Coordinate Morph Engine */
+
 @keyframes siriMeshMorph {
   0% {
     --bubble-1-x: 8%;   --bubble-1-y: 25%;
@@ -446,7 +444,7 @@ footer {
   }
 }
 
-/* Accessibility: Motion Reductions */
+
 @media (prefers-reduced-motion: reduce) {
   .container {
     animation: none;
@@ -466,7 +464,7 @@ footer {
   }
 }
 
-/* Small screen height optimization */
+
 @media (max-height: 680px) {
   body { padding: 1.5rem 1.5rem; }
   .container { gap: 1.5rem; }
