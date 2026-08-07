@@ -554,57 +554,5 @@ footer {
   </footer>
 </main>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const avatar = document.getElementById('avatar-trigger');
-  const title = document.getElementById('main-title');
-  const subtitle = document.getElementById('main-subtitle');
-
-  const styles = [
-    'wa-rainbow',
-    'wa-blue3d',
-    'wa-silver',
-    'wa-flame',
-    'wa-neon',
-    'wa-gold',
-    'wa-lime',
-    'wa-corporate',
-    'wa-vertical'
-  ];
-
-  let currentStyleIndex = -1;
-
-  avatar.addEventListener('click', (e) => {
-    e.preventDefault(); 
-    
-    if (navigator.vibrate) {
-      navigator.vibrate(15);
-    }
-
-    if (currentStyleIndex !== -1) {
-      title.classList.remove(styles[currentStyleIndex]);
-
-      if (styles[currentStyleIndex] === 'wa-vertical') {
-        title.style.writingMode = '';
-        subtitle.style.marginTop = '';
-      }
-    }
-
-    currentStyleIndex++;
-
-    if (currentStyleIndex >= styles.length) {
-      currentStyleIndex = -1;
-    } else {
-      const nextStyle = styles[currentStyleIndex];
-      title.classList.add(nextStyle);
-
-      if (nextStyle === 'wa-vertical') {
-        title.style.writingMode = 'vertical-rl';
-        subtitle.style.marginTop = '1.5rem';
-      }
-    }
-  });
-});
-</script>
 </body>
 </html>
